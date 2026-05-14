@@ -46,8 +46,6 @@
     <string name="clone_type_option_offline">Offline</string>
     <string name="app_type_option_user">User App</string>
     <string name="app_type_option_system">System App</string>
-    <string name="task_type_option_mine">Mine</string>
-    <string name="task_type_option_fixed">Fixed</string>
 
     <string name="app_browser_name">Universal Browser</string>
     <string name="description_navigation_main">navigation</string>
@@ -62,11 +60,6 @@
     <string name="menu_rules_step">Rules·Step-3</string>
     <string name="menu_logs_step">Logs·Step-4</string>
 
-    <string name="menu_tasks">Task</string>
-    <string name="menu_server">Server</string>
-    <string name="menu_client">Client</string>
-    <string name="menu_frpc">Frpc</string>
-    <string name="menu_apps">App List</string>
     <string name="menu_logcat">Logcat</string>
     <string name="menu_help">Help</string>
     <string name="menu_about">About</string>
@@ -74,10 +67,8 @@
     <string name="about_app_version">AppVer: %s</string>
     <string name="about_app_version_tips" formatted="false">Version Name: %s\nVersion Code: %s\nBuild Time: %s\nGit Commit ID: %s</string>
     <string name="about_cache_size">Cache Size: %s</string>
-    <string name="about_frpc_version">FrpcVer: %s</string>
     <string name="about_item_wechat_miniprogram" formatted="false">WeChat MiniProgram</string>
     <string name="about_cache_purged">Cache cleared</string>
-    <string name="about_frpc_deleted">Frpc Deleted, App restarting</string>
     <string name="about_copyright">© %1$s PPPSCN All rights reserved.</string>
     <string name="about_item_open_source">OpenSource Repo</string>
     <string name="about_item_github">GitHub</string>
@@ -126,14 +117,12 @@
     <string name="action_back">Back to edit</string>
     <string name="action_quit">Give up</string>
     <string name="action_test">Test rules</string>
-    <string name="title_save_config">Save frpc config</string>
     <string name="tips_input_config_content">Please enter config content</string>
     <string name="tips_input_config_name">Please enter config name</string>
     <string name="tipSaveSuccess">Successfully saved</string>
     <string name="tipRestoreSuccess">Successfully restored</string>
     <string name="noName">unnamed</string>
     <string name="copySuccess">Successfully copied</string>
-    <string name="tipServiceRunning">Frpc service is running</string>
     <string name="tipWaitService">Starting service</string>
 
     <string name="app_name">SmsForwarder</string>
@@ -179,11 +168,8 @@
     <string name="delete_rule_toast">The rule has deleted.</string>
     <string name="new_sender_first">Please add a new sender and then choose it.</string>
     <string name="new_rule_first">Please add a new rule and then choose it.</string>
-    <string name="new_task_first">Please add a new task and then choose it.</string>
     <string name="add_sender_first">Please add a sender first.</string>
     <string name="add_rule_first">Please add a rule first.</string>
-    <string name="add_frpc_first">Please add a frpc first.</string>
-    <string name="add_task_first">Please add a task first.</string>
     <string name="rule_title">Rule Alias</string>
     <string name="rule_title_tips">Opt., e.g. Forward codes to DingTalk</string>
     <string name="select_sender">Select Sender</string>
@@ -381,7 +367,6 @@
     <string name="mqtt">MQTT</string>
     <string name="ssl">SSL</string>
     <!--CloneActivity-->
-    <string name="operating_instruction">Important Note:\nThis feature is intended solely for personal use in switching between old and new phones. Any consequences arising from illegal use are the user\'s responsibility!\n\nInstructions:\n1. Connect both old and new phones to the same WiFi network (disable AP isolation). If internal network penetration is needed, configure Frpc first.\n2. [Choose One] On the old phone, tap the "Push" button to send this device\'s configuration to the server.\n3. [Choose One] On the new phone, tap the "Pull" button to fetch the server\'s configuration to this device.\n\nNotes:\n1. The client and server app versions must match for successful cloning.\n2. Upon successful import, the senders and forwarding rules will be entirely replaced, clearing the historical records.\n3. Active requests, keep-alive measures, and personal settings are not included in the cloning scope.\n4. After successful import, it\'s crucial to re-enter the [General Settings] and toggle on the functions you need! (Or manually grant permissions in system settings).</string>
     <string name="operating_instruction_offline">Important Note:\nThis feature is strictly intended for personal use in switching between old and new phones. Any consequences arising from illegal use are the user\'s responsibility!\n\nNotes:\n1. The exporting and importing apps must have identical versions for one-click cloning to work!\n2. Upon successful import on the new phone, the senders and forwarding rules will be entirely replaced, clearing the history records!\n3. Active requests, keep-alive measures, and personal settings are not included in the cloning process.\n4. After a successful import, it\'s crucial to re-enter the [General Settings] and toggle on the functions you need! (Or manually grant permissions in system settings).</string>
     <string name="push">Push</string>
     <string name="pull">Pull</string>
@@ -390,8 +375,6 @@
     <string name="imports">Import</string>
     <string name="old_mobile_phone">Old Phone</string>
     <string name="new_mobile_phone">New Phone</string>
-    <string name="server_ip">Server IP: </string>
-    <string name="server_port">Port: </string>
     <string name="invalid_ip">Please enter a valid IP or domain</string>
     <string name="invalid_mqtt_message_topic">Please enter a valid message topic</string>
     <string name="invalid_port">Please enter a valid port</string>
@@ -552,12 +535,7 @@
     <string name="TelegramChatIdTips">Follow the steps in the wiki to obtain it</string>
     <string name="TelegramMessageThreadIdTips">Opt., Follow the steps in the wiki to obtain it</string>
     <string name="tips_backup_path">Backup path:: </string>
-    <string name="frpc_name">Config name</string>
-    <string name="frpc_autorun">Auto-start</string>
 
-    <string name="http_server">HttpServer</string>
-    <string name="start_server">Start Server</string>
-    <string name="stop_server">Stop Server</string>
 
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -569,7 +547,6 @@
     <string name="join_preview_program">Join Preview Program</string>
     <string name="join_preview_program_tips">Check out weekly builds of SmsF for early access to new features and bug fixes</string>
     <string name="clear_cache">Clear</string>
-    <string name="delete_frpc">Delete</string>
 
     <string name="sender_name_status">Channel Name/Status</string>
 
@@ -653,8 +630,6 @@
     <string name="pushplus_token_hint">Please go to the corresponding official website to obtain</string>
     <string name="choose_rule">Drop-down selection, keyword fuzzy match</string>
     <string name="choose_sender">Drop-down selection, keyword fuzzy match</string>
-    <string name="choose_frpc">Drop-down selection, keyword fuzzy match</string>
-    <string name="choose_task">Drop-down selection, keyword fuzzy match</string>
     <string name="choose_app">Installed Apps</string>
     <string name="extra_app">Extra Apps</string>
     <string name="extra_app_hint">One package name per line\nEnable async loading of the App list for selection.</string>
@@ -671,9 +646,6 @@
     <string name="request_failed">Request failed: </string>
     <string name="request_failed_tips">Request failed: %s</string>
     <string name="no_sms_sending_permission">No SMS sending permission</string>
-    <string name="frpclib_download_title">Missing FrpcLib v%s</string>
-    <string name="frpclib_download_content">Downloading, please wait…</string>
-    <string name="frpclib_version_mismatch">FrpcLib version mismatch</string>
     <string name="page_not_found">Page not found!</string>
     <string name="data_error">Data error!</string>
     <string name="cannot_open_with_browser">Can\'t open with browser</string>
@@ -714,10 +686,6 @@
     <string name="auto_start_smartisan"><![CDATA[Smartisan: Permission management -> Self-starting permission management -> Click Apply -> Allow to be activated by the system]]></string>
     <string name="need_to_restart">The APP needs to be restarted for this configuration item to take effect</string>
 
-    <string name="http_server_running">HttpServer is running! On %1$s:%2$d</string>
-    <string name="http_server_stopped">HttpServer is stopped!</string>
-    <string name="server_settings">Server Settings</string>
-    <string name="server_settings_tips">It is recommended to enable signature settings, click "Random" to generate and copy to clipboard</string>
     <string name="sign_key">Sign Key</string>
     <string name="rsa_key_tips">Key pair generated and copied to clipboard</string>
     <string name="rsa_key_tips2">Copied to clipboard</string>
@@ -792,18 +760,12 @@
     <string name="battery_plugged">Plugged: %s</string>
     <string name="battery_plugged_title">Plugged</string>
 
-    <string name="server_history">History</string>
-    <string name="server_test">Login</string>
     <string name="invalid_service_address">Invalid service address\nFormat: http://127.0.0.1:5000 or https://smsf.demo.com</string>
     <string name="click_test_button_first">Click the test button first, to get the list of features enabled by the server</string>
-    <string name="disabled_on_the_server">Disable this feature on the server</string>
-    <string name="frpc_failed_to_run">Frpc failed to run</string>
     <string name="successfully_deleted">Successfully deleted</string>
     <string name="sender_disabled_tips">[Note] The sender has been disabled, and its associated rules will not be sent even if they match!</string>
     <string name="sender_contains_tips">[Note] The sender is already in the list, no need to add it again!</string>
     <string name="rule_contains_tips">[Note] The rule is already in the list, no need to add it again!</string>
-    <string name="frpc_contains_tips">[Note] The frpc is already in the list, no need to add it again!</string>
-    <string name="task_contains_tips">[Note] The task is already in the list, no need to add it again!</string>
     <string name="local_call">Local Call:</string>
     <string name="remote_sms">Remote SMS：</string>
     <string name="clear">Clear</string>
@@ -842,31 +804,17 @@
     <string name="sms_keyword_hint">Input keywords to fuzzy match SMS content</string>
     <string name="contact_keyword_hint">Pure numbers match numbers / non-numbers match names</string>
     <string name="call_keyword_hint">Input keyword to fuzzy match mobile phone number</string>
-    <string name="server_settings_tips2">Fill these items according to the config of server</string>
-    <string name="service_address">Server Url</string>
     <string name="service_address_hint">E.g: http://127.0.0.1:5000</string>
-    <string name="features_list">Features List</string>
-    <string name="pure_client_mode">Directly To Client</string>
-    <string name="pure_client_mode_tips">When starting, it will directly enter the control client</string>
-    <string name="exit_pure_client_mode">Exit pure client mode</string>
-    <string name="enabling_pure_client_mode">Do you want to quit the app immediately and start it manually to take effect in pure client mode?</string>
-    <string name="pure_task_mode">Directly To Task</string>
-    <string name="pure_task_mode_tips">When starting, it will directly enter the task center</string>
     <string name="debug_mode">Enable debug mode</string>
     <string name="debug_mode_tips">Save Log.* to file for troubleshooting; export to download directory.</string>
     <string name="optional_components">Opt.:</string>
     <string name="enable_cactus">Enable Cactus Keep Alive</string>
     <string name="enable_cactus_tips">Dual foreground service/JobScheduler/WorkManager/1px/silent music</string>
-    <string name="load_app_list">Get installed app info async at startup</string>
-    <string name="load_app_list_tips">Used to speed up entering the application list/editing forwarding rules drop-down selection/replacement {{APP_NAME}}</string>
-    <string name="load_app_list_toast">A type must be selected when enabling asynchronous loading of the list of installed apps</string>
     <string name="no_server_history">There is no history record, it will be added automatically after the interface test is passed</string>
     <string name="select_time_period">Select Time Period</string>
     <string name="silent_time_period">Disable FW. Period</string>
     <string name="silent_time_period_tips">If the end time is less than the start time, it will span days; if it is equal, it will be disabled</string>
     <string name="silent_time_period_logs">Save Logs</string>
-    <string name="download_frpc_tips">Do you want to download and restart to load!</string>
-    <string name="download_frpc_tips2">Download successful, do you want to restart the loading now?</string>
     <string name="appkey">AppKey</string>
     <string name="appsecret">AppSecret</string>
     <string name="sampleText">Text</string>
@@ -884,13 +832,10 @@
     <string name="wol_port_regex" tools:ignore="TypographyDashes">^([0-9]|[1-9]\\d|[1-9]\\d{2}|[1-9]\\d{3}|[1-5]\\d{4}|6[0-4]\\d{3}|65[0-4]\\d{2}|655[0-2]\\d|6553[0-5])$</string>
     <string name="select_directory">Select Dir</string>
     <string name="select_file">Select File</string>
-    <string name="web_client">Web Client</string>
-    <string name="restarting_httpserver">Restarting HttpServer</string>
     <string name="download_first">Download and unzip to:\n%s</string>
     <string name="download_music_first">Download music file to:\n%s</string>
     <string name="download_certificate_first">Download certificate file to:\n%s</string>
     <string name="root_directory">Root Directory:\n%s</string>
-    <string name="select_web_client_directory">Select WebClient Directory</string>
     <string name="invalid_feishu_app_parameter">AppId/AppSecret/UserId cannot be empty</string>
     <string name="app_id">App ID</string>
     <string name="app_secret">App Secret</string>
@@ -916,7 +861,6 @@
     <string name="sender_disabled">Sender is disabled</string>
     <string name="unknown_sender">Unknown sender</string>
     <string name="network_type">Network Type</string>
-    <string name="loading_app_list">Loading the list of apps, please wait…</string>
 
     <string name="carrier_name">Carrier Name</string>
     <string name="sim_slot_index">Sim Slot Index</string>
@@ -958,75 +902,8 @@
     <string name="scan_interval">Scan Interval</string>
     <string name="ignore_anonymous">Ignore Anonymous</string>
 
-    <string name="task_name_status">Name/Status</string>
-    <string name="task_conditions">IF</string>
-    <string name="task_conditions_tips">Influenced by the first condition, the other condition as determinants.</string>
-    <string name="task_actions">THEN</string>
-    <string name="task_actions_tips">Allow multiple execution actions, with each execution result being independent of the others.</string>
-    <string name="add_task">Add Task</string>
-    <string name="edit_task">Edit Task</string>
-    <string name="clone_task">Clone Task</string>
-    <string name="delete_task_title">Delete confirmation</string>
-    <string name="delete_task_tips">Are you sure to delete this task?</string>
-    <string name="delete_task_toast">The task has deleted.</string>
-    <string name="add_condition">Add Condition</string>
-    <string name="add_condition_tips" tools:ignore="StringFormatCount">Example: battery level below 20%</string>
-    <string name="add_action">Add Action</string>
-    <string name="add_action_tips">Example: Disable all forwarding</string>
 
-    <string name="select_task_trigger">Please select trigger condition</string>
-    <string name="select_task_condition">Please select additional condition</string>
-    <string name="select_task_action">Please select action</string>
     <string name="bottom_sheet_close">Close</string>
-    <string name="task_cron">Cron</string>
-    <string name="task_cron_tips">Quartz Cron Expression</string>
-    <string name="task_to_address">To Address</string>
-    <string name="task_to_address_tips">Using latitude and longitude coordinates (WGS-84).</string>
-    <string name="task_leave_address">Leave Address</string>
-    <string name="task_leave_address_tips">Using latitude and longitude coordinates (WGS-84).</string>
-    <string name="task_network">Network</string>
-    <string name="task_network_tips">Trigger upon network status change.</string>
-    <string name="task_sim">SIM Status</string>
-    <string name="task_sim_tips">Trigger upon SIM Status change.</string>
-    <string name="task_battery">Battery</string>
-    <string name="task_battery_tips">Trigger when battery level meets condition.</string>
-    <string name="task_charge">Charge</string>
-    <string name="task_lock_screen">Screen Off/On</string>
-    <string name="task_lock_screen_tips">Trigger upon screen lock/unlock instantly or after a set time.</string>
-    <string name="task_charge_tips">Triggered when the charging state meets the conditions.</string>
-    <string name="task_sms">SMS</string>
-    <string name="task_sms_when">received SMS broadcast from %s</string>
-    <string name="task_call">Call</string>
-    <string name="task_call_when">received CALL broadcast from %s</string>
-    <string name="task_app">Notification</string>
-    <string name="task_app_when">received APP notification</string>
-    <string name="task_bluetooth">Bluetooth Device</string>
-    <string name="task_bluetooth_tips">Triggered upon changes in Bluetooth status</string>
-    <string name="task_sendsms">Send Sms</string>
-    <string name="task_notification">Notify</string>
-    <string name="task_frpc">Frpc On/Off</string>
-    <string name="task_frpc_tips">Control the start/stop of FRPC.</string>
-    <string name="task_http_server">Server On/Off</string>
-    <string name="task_http_server_tips">Manage HttpServer start/stop and enable/disable functions</string>
-    <string name="task_cleaner">Cleaner</string>
-    <string name="task_cleaner_tips">Delete FW. logs older than N days, delete cache, etc.</string>
-    <string name="task_cleaner_desc">Delete FW. logs older than %s days, delete cache, etc.</string>
-    <string name="task_settings">Settings</string>
-    <string name="task_settings_tips">Control the configuration switch of "Settings".</string>
-    <string name="task_rule">Rules On/Off</string>
-    <string name="task_rule_tips">Control the enable/disable of "Rules"</string>
-    <string name="task_sender">Channels On/Off</string>
-    <string name="task_sender_tips">Control the enable/disable of "Senders"</string>
-    <string name="task_alarm">Alarm Reminder</string>
-    <string name="task_alarm_tips">Play music/vibrate phone to remind</string>
-    <string name="task_resend">Resend Message</string>
-    <string name="task_resend_tips">Resend forwarded records since N hours ago, 0=ALL</string>
-    <string name="task_resend_desc" formatted="false">Resend forwarding records since %s hours ago for %s</string>
-    <string name="task_resend_error">At least one "Original Result" must be selected</string>
-    <string name="task_task">Tasks On/Off</string>
-    <string name="task_task_tips">Control the enable/disable of the "Auto Task"</string>
-    <string name="task_wol">Wake on LAN</string>
-    <string name="task_wol_tips">Send a WOL magic packet to wake up LAN devices</string>
     <string name="wol_description">Wake up device %s</string>
     <string name="wol_method">Wake-up Method</string>
     <string name="wol_method_local_api">Via Local Service API (Server WOL must be enabled)</string>
@@ -1145,7 +1022,6 @@
     <string name="specified_uid">Specified Uid</string>
     <string name="specified_rule">Specified Rule</string>
     <string name="specified_sender">Specified Sender</string>
-    <string name="specified_task">Specified Task</string>
 
     <string name="multi_languages">Multilingual</string>
     <string name="multi_languages_tips">Default language shown on SmsF\'s interface at startup.</string>
@@ -1156,8 +1032,6 @@
     <string name="english">English</string>
     <string name="log_export_failed">Log Export Failed!</string>
     <string name="log_export_success">Log exported successfully! Path:</string>
-    <string name="all_auto_started_frpc">All auto-started Frpc</string>
-    <string name="specified_frpc">Specified Frpc</string>
     <string name="successful_execution">Execution successful: %s</string>
 
     <string name="enable_accessibility_service">Enable Accessibility Service</string>
@@ -1169,8 +1043,6 @@
     <string name="receive_id">Receive ID</string>
     <string name="toast_location_not_enabled">Location is not enabled, Please go to system settings and activate it.</string>
     <string name="toast_bluetooth_not_enabled">Bluetooth is not enabled, Please go to system settings and activate it.</string>
-    <string name="task_condition_check_again">Recheck when delaying execution.</string>
-    <string name="task_condition_check_again_tips">When used as a triggering condition, recheck during delayed action execution.</string>
 
     <string name="start_alarm">Start Alarm</string>
     <string name="stop_alarm">Stop Alarm</string>
@@ -1194,10 +1066,6 @@
     <string name="alarm_settings_error">At least one of Play Music/Vibrate Phone/Flash Phone must be enabled</string>
 
     <string name="invalid_tag" formatted="false">%s tag is invalid: %s</string>
-    <string name="invalid_task_name">Please input task name.</string>
-    <string name="invalid_conditions">Please add trigger conditions.</string>
-    <string name="invalid_actions">Please add execution actions.</string>
-    <string name="invalid_cron">Please set the time for the scheduled task</string>
     <string name="invalid_proxy_host">Proxy server hostname resolution failed: proxyHost=%s</string>
 
     <string name="bluetooth_state_changed">Bluetooth State Changed</string>

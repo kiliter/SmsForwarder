@@ -75,8 +75,6 @@
     <string name="clone_type_option_offline">离线模式</string>
     <string name="app_type_option_user">用户应用</string>
     <string name="app_type_option_system">系统应用</string>
-    <string name="task_type_option_mine">我的任务</string>
-    <string name="task_type_option_fixed">任务中心</string>
 
     <string name="app_browser_name">通用浏览器</string>
     <string name="description_navigation_main">导航条</string>
@@ -91,11 +89,6 @@
     <string name="menu_rules_step">转发规则·第三步</string>
     <string name="menu_logs_step">转发日志·第四步</string>
 
-    <string name="menu_tasks">自动任务·快捷指令</string>
-    <string name="menu_server">主动控制·服务端</string>
-    <string name="menu_client">主动控制·客户端</string>
-    <string name="menu_frpc">内网穿透·Frpc</string>
-    <string name="menu_apps">应用列表·复制包名</string>
     <string name="menu_logcat">日志抓取·Logcat</string>
     <string name="menu_help">使用帮助</string>
     <string name="menu_about">关于软件</string>
@@ -103,10 +96,8 @@
     <string name="about_app_version">软件版本：%s</string>
     <string name="about_app_version_tips" formatted="false">版本名称：%s\n版本代码：%s\n构建时间：%s\nGit提交ID：%s</string>
     <string name="about_cache_size">缓存大小：%s</string>
-    <string name="about_frpc_version">Frpc版本：%s</string>
     <string name="about_item_wechat_miniprogram" formatted="false">微信小程序</string>
     <string name="about_cache_purged">已清理缓存</string>
-    <string name="about_frpc_deleted">已删除动态库，重启APP以便生效！</string>
     <string name="about_copyright">© %1$s PPPSCN All rights reserved.</string>
     <string name="about_item_open_source">开源仓库</string>
     <string name="about_item_github">GitHub</string>
@@ -156,14 +147,12 @@
     <string name="action_back">返回编辑</string>
     <string name="action_quit">放弃修改</string>
     <string name="action_test">测试规则</string>
-    <string name="title_save_config">保存Frpc配置</string>
     <string name="tips_input_config_content">请输入配置内容</string>
     <string name="tips_input_config_name">请输入配置名称</string>
     <string name="tipSaveSuccess">保存成功</string>
     <string name="tipRestoreSuccess">还原成功</string>
     <string name="noName">未命名</string>
     <string name="copySuccess">复制成功</string>
-    <string name="tipServiceRunning">Frpc内网穿透服务运行中</string>
     <string name="tipWaitService">正在启动服务</string>
 
     <string name="app_name">短信转发器</string>
@@ -209,11 +198,8 @@
     <string name="delete_rule_toast">该条规则已经删除！</string>
     <string name="new_sender_first">请选择发送通道（若无，请先添加）</string>
     <string name="new_rule_first">请选择转发规则（若无，请先添加）</string>
-    <string name="new_task_first">请选择自动任务（若无，请先添加）</string>
     <string name="add_sender_first">请先去设置发送通道页面添加</string>
     <string name="add_rule_first">请先去设置转发规则页面添加</string>
-    <string name="add_frpc_first">请先去设置Frpc页面添加</string>
-    <string name="add_task_first">请先去设置自动任务页面添加</string>
     <string name="rule_title">规则别名</string>
     <string name="rule_title_tips">可选, 例: 快递验证码转发到钉钉</string>
     <string name="select_sender">发送通道</string>
@@ -411,7 +397,6 @@
     <string name="mqtt">MQTT</string>
     <string name="ssl">SSL</string>
     <!--CloneActivity-->
-    <string name="operating_instruction">严正声明：\n该功能仅限个人新旧手机切换使用，用于非法用途后果自负！\n\n操作说明：\n1.新旧手机连接同一个WiFi网络(禁用AP隔离)，如需穿透内网请先配置Frpc\n2.【二选一】旧手机点【推送】按钮，将本机的配置推送到服务端\n3.【二选一】新手机点【拉取】按钮，将拉取服务端的配置到本机\n\n注意事项：\n1.客户端与服务端的APP版本必须一致，才能克隆!\n2.导入成功后，发送通道、转发规则将完全被覆盖，清空历史记录！\n3.主动请求、保活措施、个性设置不在克隆范围\n4.导入成功后，务必再次进入【通用设置】开关一次你需要的功能！(或去系统设置手动授权权限)</string>
     <string name="operating_instruction_offline">严正声明：\n该功能仅限个人新旧手机切换使用，用于非法用途后果自负！\n\n注意事项：\n1.导出方与导入方的APP版本必须一致，才能一键克隆!\n2.新手机导入成功后，发送通道、转发规则将完全被覆盖，清空历史记录！\n3.主动请求、保活措施、个性设置不在克隆范围\n4.导入成功后，务必再次进入【通用设置】开关一次你需要的功能！(或去系统设置手动授权权限)</string>
     <string name="push">推送</string>
     <string name="pull">拉取</string>
@@ -420,8 +405,6 @@
     <string name="imports">导入</string>
     <string name="old_mobile_phone">我是旧手机</string>
     <string name="new_mobile_phone">我是新手机</string>
-    <string name="server_ip">服务端IP：</string>
-    <string name="server_port">端口：</string>
     <string name="invalid_ip">请输入合法的IP或域名</string>
     <string name="invalid_mqtt_message_topic">请输入合法的输入/输出信息主题</string>
     <string name="invalid_port">请输入合法的端口号</string>
@@ -582,12 +565,7 @@
     <string name="TelegramChatIdTips">请按照wiki中的步骤获取</string>
     <string name="TelegramMessageThreadIdTips">可选，请按照wiki中的步骤获取</string>
     <string name="tips_backup_path">备份文件存放路径：</string>
-    <string name="frpc_name">配置名称</string>
-    <string name="frpc_autorun">开机自启</string>
 
-    <string name="http_server">HttpServer</string>
-    <string name="start_server">启动服务</string>
-    <string name="stop_server">停止服务</string>
 
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -599,7 +577,6 @@
     <string name="join_preview_program">加入SmsF预览体验计划</string>
     <string name="join_preview_program_tips">检查SmsF每周构建版更新，率先体验新功能与Bug修复</string>
     <string name="clear_cache">清理缓存</string>
-    <string name="delete_frpc">删除动态库</string>
 
     <string name="sender_name_status">通道名称/状态</string>
 
@@ -683,8 +660,6 @@
     <string name="pushplus_token_hint">请前往对应的官网地址获取</string>
     <string name="choose_rule">下拉选择，关键字模糊匹配</string>
     <string name="choose_sender">下拉选择，关键字模糊匹配</string>
-    <string name="choose_frpc">下拉选择，关键字模糊匹配</string>
-    <string name="choose_task">下拉选择，关键字模糊匹配</string>
     <string name="choose_app">已装APP列表</string>
     <string name="extra_app">额外消除应用通知</string>
     <string name="extra_app_hint">一行一个包名\n开启异步加载App列表以便选择</string>
@@ -701,9 +676,6 @@
     <string name="request_failed">请求失败：</string>
     <string name="request_failed_tips">请求失败：%s</string>
     <string name="no_sms_sending_permission">没有短信发送权限</string>
-    <string name="frpclib_download_title">缺少 FrpcLib v%s 动态库</string>
-    <string name="frpclib_download_content">正在下载中，请稍后……</string>
-    <string name="frpclib_version_mismatch">FrpcLib 版本不匹配</string>
     <string name="page_not_found">页面未找到！</string>
     <string name="data_error">数据出错！</string>
     <string name="cannot_open_with_browser">Can\'t open with browser</string>
@@ -744,10 +716,6 @@
     <string name="auto_start_smartisan"><![CDATA[锤子手机：权限管理 -> 自启动权限管理 -> 点击应用 -> 允许被系统启动]]></string>
     <string name="need_to_restart">需要手动重新启动APP，才能生效该配置项</string>
 
-    <string name="http_server_running">HttpServer运行中，监听：%1$s:%2$d</string>
-    <string name="http_server_stopped">HttpServer已停止</string>
-    <string name="server_settings">服务端设置</string>
-    <string name="server_settings_tips">建议启用签名设置、点击“随机”自动生成并复制到剪贴板</string>
     <string name="copy" tools:ignore="PrivateResource">复制</string>
     <string name="random">随机生成</string>
     <string name="sign_key">签名密钥</string>
@@ -822,18 +790,12 @@
     <string name="battery_plugged">充电器：%s</string>
     <string name="battery_plugged_title">充电器</string>
 
-    <string name="server_history">历史记录</string>
-    <string name="server_test">登录服务</string>
     <string name="invalid_service_address">无效的服务地址！\n格式：http://127.0.0.1:5000 或 https://smsf.demo.com</string>
     <string name="click_test_button_first">请先点击【登录服务】按钮，获取服务端已启用的功能列表</string>
-    <string name="disabled_on_the_server">服务端禁用此功能</string>
-    <string name="frpc_failed_to_run">Frpc运行失败</string>
     <string name="successfully_deleted">删除成功</string>
     <string name="sender_disabled_tips">【注意】该发送通道已经禁用，其关联的规则即便匹配上也不会发送！</string>
     <string name="sender_contains_tips">【注意】该发送通道已经在列表中，无需重复添加！</string>
     <string name="rule_contains_tips">【注意】该转发规则已经在列表中，无需重复添加！</string>
-    <string name="frpc_contains_tips">【注意】该Frpc已经在列表中，无需重复添加！</string>
-    <string name="task_contains_tips">【注意】该自动任务已经在列表中，无需重复添加！</string>
     <string name="local_call">本地呼叫：</string>
     <string name="remote_sms">远程发短信：</string>
     <string name="clear">清除</string>
@@ -872,31 +834,17 @@
     <string name="sms_keyword_hint">输入关键字模糊匹配短信内容</string>
     <string name="contact_keyword_hint">纯数字匹配号码/非数字匹配姓名</string>
     <string name="call_keyword_hint">输入关键字模糊匹配手机号码</string>
-    <string name="server_settings_tips2">按照主动控制·服务端的配置填写以下项目</string>
-    <string name="service_address">服务地址</string>
     <string name="service_address_hint">例如：http://127.0.0.1:5000</string>
-    <string name="features_list">功能列表</string>
-    <string name="pure_client_mode">纯客户端模式</string>
-    <string name="pure_client_mode_tips">启动APP时直接进入主动控制·客户端</string>
-    <string name="exit_pure_client_mode">退出纯客户端模式</string>
-    <string name="enabling_pure_client_mode">是否立即退出App，并手动启动以生效纯客户端模式？</string>
-    <string name="pure_task_mode">纯自动任务模式</string>
-    <string name="pure_task_mode_tips">启动APP时直接进入自动任务</string>
     <string name="debug_mode">开启调试模式</string>
     <string name="debug_mode_tips">将Log.*写入文件，以便排查问题；可导出到下载目录</string>
     <string name="optional_components">可选组件：</string>
     <string name="enable_cactus">启用 Cactus 增强保活措施（会增加耗电）</string>
     <string name="enable_cactus_tips">双进程前台服务/JobScheduler/WorkManager/1像素/无声音乐</string>
-    <string name="load_app_list">启动时异步获取已安装App列表</string>
-    <string name="load_app_list_tips">用于加速进入应用列表/编辑转发规则下拉选择/替换{{APP_NAME}}</string>
-    <string name="load_app_list_toast">开启异步获取已安装App列表时必选一个类型</string>
     <string name="no_server_history">暂无历史记录，接口测试通过后自动加入</string>
     <string name="select_time_period">时间段选择</string>
     <string name="silent_time_period">免打扰(禁用转发)时间段</string>
     <string name="silent_time_period_tips">结束时间小于开始则跨天；相等则禁用</string>
     <string name="silent_time_period_logs">记录日志</string>
-    <string name="download_frpc_tips">是否立即下载，并重启加载？</string>
-    <string name="download_frpc_tips2">下载成功，是否立即重启加载？</string>
     <string name="appkey">AppKey</string>
     <string name="appsecret">AppSecret</string>
     <string name="sampleText">文本类型</string>
@@ -914,13 +862,10 @@
     <string name="wol_port_regex" tools:ignore="TypographyDashes">^([0-9]|[1-9]\\d|[1-9]\\d{2}|[1-9]\\d{3}|[1-5]\\d{4}|6[0-4]\\d{3}|65[0-4]\\d{2}|655[0-2]\\d|6553[0-5])$</string>
     <string name="select_directory">选择目录</string>
     <string name="select_file">选择文件</string>
-    <string name="web_client">Web客户端</string>
-    <string name="restarting_httpserver">正在重启HttpServer</string>
     <string name="download_first">请先下载Web客户端并解压到：\n%s</string>
     <string name="download_music_first">请先下载音乐文件到：\n%s</string>
     <string name="download_certificate_first">请先下载证书文件到：\n%s</string>
     <string name="root_directory">根目录：\n%s</string>
-    <string name="select_web_client_directory">选择Web客户端目录</string>
     <string name="invalid_feishu_app_parameter">AppId/AppSecret/UserId都不能为空</string>
     <string name="app_id">App ID</string>
     <string name="app_secret">App Secret</string>
@@ -946,7 +891,6 @@
     <string name="sender_disabled">发送通道已禁用</string>
     <string name="unknown_sender">未知发送通道</string>
     <string name="network_type">网络类型</string>
-    <string name="loading_app_list">努力加载应用列表中，请稍候…</string>
 
     <string name="carrier_name">运营商名</string>
     <string name="sim_slot_index">卡槽索引</string>
@@ -988,75 +932,8 @@
     <string name="scan_interval">扫描间隔</string>
     <string name="ignore_anonymous">忽略匿名设备</string>
 
-    <string name="task_name_status">任务名称/状态</string>
-    <string name="task_conditions">如果</string>
-    <string name="task_conditions_tips">由第一个条件触发，其他条件作为判断</string>
-    <string name="task_actions">就执行</string>
-    <string name="task_actions_tips">允许添加多个执行动作，执行结果互不干扰</string>
-    <string name="add_task">新建任务</string>
-    <string name="edit_task">编辑任务</string>
-    <string name="clone_task">克隆任务</string>
-    <string name="delete_task_title">删除任务操作确认</string>
-    <string name="delete_task_tips">删除任务操作确认</string>
-    <string name="delete_task_toast">删除任务操作确认</string>
-    <string name="add_condition">添加条件</string>
-    <string name="add_condition_tips" tools:ignore="StringFormatCount">例如：如果电量低于20%时</string>
-    <string name="add_action">添加动作</string>
-    <string name="add_action_tips">例如：禁用所有转发通道</string>
 
-    <string name="select_task_trigger">请选择触发条件</string>
-    <string name="select_task_condition">请选择附加条件</string>
-    <string name="select_task_action">请选择动作</string>
     <string name="bottom_sheet_close">关  闭</string>
-    <string name="task_cron">定时任务</string>
-    <string name="task_cron_tips">采用 Quartz Cron 表达式</string>
-    <string name="task_to_address">到达地点</string>
-    <string name="task_to_address_tips">采用经纬度坐标（WGS-84坐标系）</string>
-    <string name="task_leave_address">离开地点</string>
-    <string name="task_leave_address_tips">经纬度采用WGS-84坐标系</string>
-    <string name="task_network">网络状态</string>
-    <string name="task_network_tips">当网络状态改变时触发</string>
-    <string name="task_sim">SIM卡状态</string>
-    <string name="task_sim_tips">当SIM卡状态改变时触发</string>
-    <string name="task_battery">电量使用</string>
-    <string name="task_battery_tips">当剩余电量满足条件时触发</string>
-    <string name="task_charge">充电状态</string>
-    <string name="task_charge_tips">当充电状态满足条件时触发</string>
-    <string name="task_lock_screen">锁屏解锁</string>
-    <string name="task_lock_screen_tips">在屏幕锁定或解锁后立即或指定时间触发</string>
-    <string name="task_sms">短信广播</string>
-    <string name="task_sms_when">接收到%s短信广播</string>
-    <string name="task_call">通话广播</string>
-    <string name="task_call_when">接收到%s通话广播</string>
-    <string name="task_app">APP通知</string>
-    <string name="task_app_when">接收到APP通知</string>
-    <string name="task_bluetooth">蓝牙设备</string>
-    <string name="task_bluetooth_tips">在蓝牙状态发生改变时触发</string>
-    <string name="task_sendsms">发送短信</string>
-    <string name="task_notification">推送通知</string>
-    <string name="task_frpc">启停Frpc</string>
-    <string name="task_frpc_tips">控制内网穿透·FRPC的启动/停止</string>
-    <string name="task_http_server">启停HttpServer</string>
-    <string name="task_http_server_tips">控制HttpServer的启动/停止，并支持启用/禁用功能</string>
-    <string name="task_cleaner">清理日志</string>
-    <string name="task_cleaner_tips">批量删除N天前的转发记录、删除缓存等</string>
-    <string name="task_cleaner_desc">批量删除 %s 天前的转发记录、删除缓存等</string>
-    <string name="task_settings">通用设置</string>
-    <string name="task_settings_tips">控制【通用设置】的配置开关</string>
-    <string name="task_rule">启停规则</string>
-    <string name="task_rule_tips">控制【转发规则】的启用/禁用</string>
-    <string name="task_sender">启停通道</string>
-    <string name="task_sender_tips">控制【发送通道】的启用/禁用</string>
-    <string name="task_alarm">警报提醒</string>
-    <string name="task_alarm_tips">播放音乐/振动手机提醒</string>
-    <string name="task_resend">重发消息</string>
-    <string name="task_resend_tips">自动重发N小时以来的转发记录，0=全部</string>
-    <string name="task_resend_desc" formatted="false">自动重发%s小时以来%s的转发记录</string>
-    <string name="task_resend_error">必须至少选择一个【原转发状态】</string>
-    <string name="task_task">启停任务</string>
-    <string name="task_task_tips">控制【自动任务】的启用/禁用</string>
-    <string name="task_wol">远程唤醒</string>
-    <string name="task_wol_tips">发送WOL魔术包唤醒局域网设备</string>
     <string name="wol_description">唤醒设备 %s</string>
     <string name="wol_method">唤醒方式</string>
     <string name="wol_method_local_api">通过本地服务API(需开启服务端WOL功能)</string>
@@ -1175,7 +1052,6 @@
     <string name="specified_uid">指定配置</string>
     <string name="specified_rule">指定规则</string>
     <string name="specified_sender">指定通道</string>
-    <string name="specified_task">指定任务</string>
 
     <string name="multi_languages">多语言设置</string>
     <string name="multi_languages_tips">SmsForwarder启动时界面默认显示的语言</string>
@@ -1186,8 +1062,6 @@
     <string name="english">English</string>
     <string name="log_export_failed">导出日志失败！</string>
     <string name="log_export_success">导出日志成功！存放路径：</string>
-    <string name="all_auto_started_frpc">所有自启动的Frpc</string>
-    <string name="specified_frpc">指定的Frpc</string>
     <string name="successful_execution">执行成功：%s</string>
 
     <string name="enable_accessibility_service">启用无障碍服务</string>
@@ -1199,8 +1073,6 @@
     <string name="receive_id">消息接收者ID</string>
     <string name="toast_location_not_enabled">位置服务未开启，请先前往系统设置中开启！</string>
     <string name="toast_bluetooth_not_enabled">蓝牙服务未开启，请先前往系统设置中开启！</string>
-    <string name="task_condition_check_again">延迟执行时再次校验</string>
-    <string name="task_condition_check_again_tips">作为触发条件时，在延迟执行动作时再次校验是否满足</string>
 
     <string name="start_alarm">启动警报</string>
     <string name="stop_alarm">停止警报</string>
@@ -1224,10 +1096,6 @@
     <string name="alarm_settings_error">播放音乐/振动手机/闪烁手机必须至少开启一个</string>
 
     <string name="invalid_tag" formatted="false">%s 标签无效：%s</string>
-    <string name="invalid_task_name">请输入任务名称</string>
-    <string name="invalid_conditions">请添加触发条件</string>
-    <string name="invalid_actions">请添加执行动作</string>
-    <string name="invalid_cron">请设置定时任务的时间</string>
     <string name="invalid_proxy_host">代理服务器主机名解析失败：proxyHost=%s</string>
 
     <string name="bluetooth_state_changed">蓝牙状态变化</string>
