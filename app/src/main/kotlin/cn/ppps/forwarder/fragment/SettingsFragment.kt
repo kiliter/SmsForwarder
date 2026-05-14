@@ -17,7 +17,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -25,9 +24,6 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Observer
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
 import com.hjq.language.LocaleContract
 import com.hjq.language.MultiLanguages
 import com.hjq.permissions.OnPermissionCallback
@@ -37,12 +33,9 @@ import com.hjq.permissions.permission.base.IPermission
 import cn.ppps.forwarder.App
 import cn.ppps.forwarder.R
 import cn.ppps.forwarder.activity.MainActivity
-import cn.ppps.forwarder.adapter.spinner.AppListAdapterItem
-import cn.ppps.forwarder.adapter.spinner.AppListSpinnerAdapter
 import cn.ppps.forwarder.core.BaseFragment
 import cn.ppps.forwarder.databinding.FragmentSettingsBinding
 import cn.ppps.forwarder.entity.SimInfo
-import cn.ppps.forwarder.fragment.client.CloneFragment
 import cn.ppps.forwarder.receiver.BootCompletedReceiver
 import cn.ppps.forwarder.service.BluetoothScanService
 import cn.ppps.forwarder.service.ForegroundService
@@ -56,9 +49,7 @@ import cn.ppps.forwarder.utils.AppUtils.getAppPackageName
 import cn.ppps.forwarder.utils.BluetoothUtils
 import cn.ppps.forwarder.utils.CommonUtils
 import cn.ppps.forwarder.utils.DataProvider
-import cn.ppps.forwarder.utils.EVENT_LOAD_APP_LIST
 import cn.ppps.forwarder.utils.EXTRA_UPDATE_NOTIFICATION
-import cn.ppps.forwarder.utils.KEY_DEFAULT_SELECTION
 import cn.ppps.forwarder.utils.KeepAliveUtils
 import cn.ppps.forwarder.utils.LocationUtils
 import cn.ppps.forwarder.utils.Log
@@ -67,20 +58,14 @@ import cn.ppps.forwarder.utils.ProximitySensorScreenHelper
 import cn.ppps.forwarder.utils.SettingUtils
 import cn.ppps.forwarder.utils.XToastUtils
 import cn.ppps.forwarder.widget.GuideTipsDialog
-import cn.ppps.forwarder.workers.LoadAppListWorker
-import com.jeremyliao.liveeventbus.LiveEventBus
 import com.xuexiang.xaop.annotation.SingleClick
 import com.xuexiang.xpage.annotation.Page
-import com.xuexiang.xpage.core.PageOption
 import com.xuexiang.xui.widget.actionbar.TitleBar
 import com.xuexiang.xui.widget.button.SmoothCheckBox
 import com.xuexiang.xui.widget.button.switchbutton.SwitchButton
-import com.xuexiang.xui.widget.dialog.materialdialog.DialogAction
-import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog
 import com.xuexiang.xui.widget.picker.XSeekBar
 import com.xuexiang.xui.widget.picker.widget.builder.OptionsPickerBuilder
 import com.xuexiang.xui.widget.picker.widget.listener.OnOptionsSelectListener
-import com.xuexiang.xutil.XUtil
 import com.xuexiang.xutil.XUtil.getPackageManager
 import com.xuexiang.xutil.file.FileUtils
 import java.util.Locale
@@ -93,14 +78,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding?>(), View.OnClickL
     private var titleBar: TitleBar? = null
     private val mTimeOption = DataProvider.timePeriodOption
     private var initViewsFinished = false
-
-    //已安装App信息列表
-    private val appListSpinnerList = ArrayList<AppListAdapterItem>()
-    private lateinit var appListSpinnerAdapter: AppListSpinnerAdapter<*>
-    private val appListObserver = Observer { it: String ->
-        Log.d(TAG, "EVENT_LOAD_APP_LIST: $it")
-        initAppSpinner()
-    }
 
     override fun viewBindingInflate(
         inflater: LayoutInflater,
@@ -118,15 +95,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding?>(), View.OnClickL
             @SingleClick
             override fun performAction(view: View) {
                 GuideTipsDialog.showTipsForce(requireContext())
-            }
-        })
-        titleBar!!.addAction(object : TitleBar.ImageAction(R.drawable.ic_restore) {
-            @SingleClick
-            override fun performAction(view: View) {
-                PageOption.to(CloneFragment::class.java)
-                    .putInt(KEY_DEFAULT_SELECTION, 1) //默认离线模式
-                    .setNewActivity(true)
-                    .open(this@SettingsFragment)
             }
         })
         return titleBar
@@ -154,8 +122,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding?>(), View.OnClickL
         switchEnableSmsCommand(binding!!.sbEnableSmsCommand, binding!!.etSafePhone)
         //靠近听筒关屏
         switchEnableCloseToEarpieceTurnOffScreen(binding!!.layoutEnableCloseToEarpieceTurnOffScreen, binding!!.sbEnableCloseToEarpieceTurnOffScreen)
-        //启动时异步获取已安装App信息
-        switchEnableLoadAppList(binding!!.sbEnableLoadAppList, binding!!.scbLoadUserApp, binding!!.scbLoadSystemApp)
         //设置自动消除额外APP通知
         editExtraAppList(binding!!.etAppList)
         //自动过滤多久内重复消息
@@ -203,10 +169,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding?>(), View.OnClickL
         switchSmsTemplate(binding!!.sbSmsTemplate)
         //自定义模板
         editSmsTemplate(binding!!.etSmsTemplate)
-        //纯客户端模式
-        switchDirectlyToClient(binding!!.sbDirectlyToClient)
-        //纯自动任务模式
-        switchDirectlyToTask(binding!!.sbDirectlyToTask)
         //调试模式
         switchDebugMode(binding!!.sbDebugMode)
         //多语言设置
@@ -215,21 +177,12 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding?>(), View.OnClickL
         initViewsFinished = true
     }
 
-    override fun onResume() {
-        super.onResume()
-        //初始化APP下拉列表
-        initAppSpinner()
-    }
-
     override fun initListeners() {
         binding!!.btnSilentPeriod.setOnClickListener(this)
         binding!!.btnExtraDeviceMark.setOnClickListener(this)
         binding!!.btnExtraSim1.setOnClickListener(this)
         binding!!.btnExtraSim2.setOnClickListener(this)
         binding!!.btnExportLog.setOnClickListener(this)
-
-        //监听已安装App信息列表加载完成事件
-        LiveEventBus.get(EVENT_LOAD_APP_LIST, String::class.java).observeStickyForever(appListObserver)
     }
 
     @SuppressLint("SetTextI18n")
@@ -797,56 +750,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding?>(), View.OnClickL
         })
     }
 
-    //启动时异步获取已安装App信息
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
-    private fun switchEnableLoadAppList(sbEnableLoadAppList: SwitchButton, scbLoadUserApp: SmoothCheckBox, scbLoadSystemApp: SmoothCheckBox) {
-        val isEnable: Boolean = SettingUtils.enableLoadAppList
-        sbEnableLoadAppList.isChecked = isEnable
-
-        sbEnableLoadAppList.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
-            if (isChecked && !SettingUtils.enableLoadUserAppList && !SettingUtils.enableLoadSystemAppList) {
-                sbEnableLoadAppList.isChecked = false
-                SettingUtils.enableLoadAppList = false
-                XToastUtils.error(getString(R.string.load_app_list_toast))
-                return@setOnCheckedChangeListener
-            }
-            SettingUtils.enableLoadAppList = isChecked
-            if (isChecked) {
-                XToastUtils.info(getString(R.string.loading_app_list))
-                val request = OneTimeWorkRequestBuilder<LoadAppListWorker>().build()
-                WorkManager.getInstance(XUtil.getContext()).enqueue(request)
-            }
-        }
-        scbLoadUserApp.isChecked = SettingUtils.enableLoadUserAppList
-        scbLoadUserApp.setOnCheckedChangeListener { _: SmoothCheckBox, isChecked: Boolean ->
-            SettingUtils.enableLoadUserAppList = isChecked
-            if (SettingUtils.enableLoadAppList && !SettingUtils.enableLoadUserAppList && !SettingUtils.enableLoadSystemAppList) {
-                sbEnableLoadAppList.isChecked = false
-                SettingUtils.enableLoadAppList = false
-                XToastUtils.error(getString(R.string.load_app_list_toast))
-            }
-            if (isChecked && SettingUtils.enableLoadAppList && App.UserAppList.isEmpty()) {
-                XToastUtils.info(getString(R.string.loading_app_list))
-                val request = OneTimeWorkRequestBuilder<LoadAppListWorker>().build()
-                WorkManager.getInstance(XUtil.getContext()).enqueue(request)
-            }
-        }
-        scbLoadSystemApp.isChecked = SettingUtils.enableLoadSystemAppList
-        scbLoadSystemApp.setOnCheckedChangeListener { _: SmoothCheckBox, isChecked: Boolean ->
-            SettingUtils.enableLoadSystemAppList = isChecked
-            if (SettingUtils.enableLoadAppList && !SettingUtils.enableLoadUserAppList && !SettingUtils.enableLoadSystemAppList) {
-                sbEnableLoadAppList.isChecked = false
-                SettingUtils.enableLoadAppList = false
-                XToastUtils.error(getString(R.string.load_app_list_toast))
-            }
-            if (isChecked && SettingUtils.enableLoadAppList && App.SystemAppList.isEmpty()) {
-                XToastUtils.info(getString(R.string.loading_app_list))
-                val request = OneTimeWorkRequestBuilder<LoadAppListWorker>().build()
-                WorkManager.getInstance(XUtil.getContext()).enqueue(request)
-            }
-        }
-    }
-
     //开机启动
     private fun checkWithReboot(@SuppressLint("UseSwitchCompatOrMaterialCode") sbWithReboot: SwitchButton, tvAutoStartup: TextView) {
         tvAutoStartup.text = getAutoStartTips()
@@ -1091,32 +994,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding?>(), View.OnClickL
                 SettingUtils.smsTemplate = textSmsTemplate.text.toString().trim()
             }
         })
-    }
-
-    //纯客户端模式
-    private fun switchDirectlyToClient(@SuppressLint("UseSwitchCompatOrMaterialCode") switchDirectlyToClient: SwitchButton) {
-        switchDirectlyToClient.isChecked = SettingUtils.enablePureClientMode
-        switchDirectlyToClient.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
-            SettingUtils.enablePureClientMode = isChecked
-            if (isChecked) {
-                MaterialDialog.Builder(requireContext()).content(getString(R.string.enabling_pure_client_mode)).positiveText(R.string.lab_yes).onPositive { _: MaterialDialog?, _: DialogAction? ->
-                    XUtil.exitApp()
-                }.negativeText(R.string.lab_no).show()
-            }
-        }
-    }
-
-    //纯自动任务模式
-    private fun switchDirectlyToTask(@SuppressLint("UseSwitchCompatOrMaterialCode") switchDirectlyToTask: SwitchButton) {
-        switchDirectlyToTask.isChecked = SettingUtils.enablePureTaskMode
-        switchDirectlyToTask.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
-            SettingUtils.enablePureTaskMode = isChecked
-            if (isChecked) {
-                MaterialDialog.Builder(requireContext()).content(getString(R.string.enabling_pure_client_mode)).positiveText(R.string.lab_yes).onPositive { _: MaterialDialog?, _: DialogAction? ->
-                    XUtil.exitApp()
-                }.negativeText(R.string.lab_no).show()
-            }
-        }
     }
 
     //调试模式
@@ -1367,50 +1244,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding?>(), View.OnClickL
                 context.startActivity(intent)
             }
         }
-    }
-
-    //初始化APP下拉列表
-    private fun initAppSpinner() {
-
-        //未开启异步获取已安装App信息开关时，不显示已安装APP下拉框
-        if (!SettingUtils.enableLoadAppList) return
-
-        if (App.UserAppList.isEmpty() && App.SystemAppList.isEmpty()) {
-            //XToastUtils.info(getString(R.string.loading_app_list))
-            val request = OneTimeWorkRequestBuilder<LoadAppListWorker>().build()
-            WorkManager.getInstance(XUtil.getContext()).enqueue(request)
-            return
-        }
-
-        appListSpinnerList.clear()
-        if (SettingUtils.enableLoadUserAppList) {
-            for (appInfo in App.UserAppList) {
-                if (TextUtils.isEmpty(appInfo.packageName)) continue
-                appListSpinnerList.add(AppListAdapterItem(appInfo.name, appInfo.icon, appInfo.packageName))
-            }
-        }
-        if (SettingUtils.enableLoadSystemAppList) {
-            for (appInfo in App.SystemAppList) {
-                if (TextUtils.isEmpty(appInfo.packageName)) continue
-                appListSpinnerList.add(AppListAdapterItem(appInfo.name, appInfo.icon, appInfo.packageName))
-            }
-        }
-
-        //列表为空也不显示下拉框
-        if (appListSpinnerList.isEmpty()) return
-
-        appListSpinnerAdapter = AppListSpinnerAdapter(appListSpinnerList).setIsFilterKey(true).setFilterColor("#EF5362").setBackgroundSelector(R.drawable.selector_custom_spinner_bg)
-        binding!!.spApp.setAdapter(appListSpinnerAdapter)
-        binding!!.spApp.setOnItemClickListener { _: AdapterView<*>, _: View, position: Int, _: Long ->
-            try {
-                val appInfo = appListSpinnerAdapter.getItemSource(position) as AppListAdapterItem
-                CommonUtils.insertOrReplaceText2Cursor(binding!!.etAppList, appInfo.packageName.toString() + "\n")
-            } catch (e: Exception) {
-                XToastUtils.error(e.message.toString())
-            }
-        }
-        binding!!.layoutSpApp.visibility = View.VISIBLE
-
     }
 
 }
