@@ -127,10 +127,11 @@ data class Rule(
             val blank = if (App.isNeedSpaceBetweenWords) " " else ""
             val card = SIM_SLOT_MAP[simSlot].toString() + blank + getString(R.string.rule_card) + blank
             val sb = StringBuilder()
+            //Created By AiCoding(codex): 任务相关字符串已删除，使用简化文本
             when (type) {
-                "app" -> sb.append(getString(R.string.task_app_when))
-                "call" -> sb.append(String.format(getString(R.string.task_call_when), card))
-                "sms" -> sb.append(String.format(getString(R.string.task_sms_when), card))
+                "app" -> sb.append("收到APP通知时")
+                "call" -> sb.append("收到电话通知时")
+                "sms" -> sb.append("收到短信时")
             }
             sb.append(blank)
             when (filed) {

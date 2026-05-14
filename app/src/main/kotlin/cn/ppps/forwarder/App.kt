@@ -29,10 +29,7 @@ import cn.ppps.forwarder.database.repository.MsgRepository
 import cn.ppps.forwarder.database.repository.RuleRepository
 import cn.ppps.forwarder.database.repository.SenderRepository
 import cn.ppps.forwarder.entity.SimInfo
-import cn.ppps.forwarder.receiver.BatteryReceiver
-import cn.ppps.forwarder.receiver.BluetoothReceiver
 import cn.ppps.forwarder.receiver.CactusReceiver
-import cn.ppps.forwarder.receiver.LockScreenReceiver
 import cn.ppps.forwarder.receiver.NetworkChangeReceiver
 import cn.ppps.forwarder.service.BluetoothScanService
 import cn.ppps.forwarder.service.ForegroundService
@@ -180,25 +177,6 @@ class App : Application(), CactusCallback, Configuration.Provider by Core {
                 startService(locationServiceIntent)
             }
 
-            //监听电量&充电状态变化
-            val batteryReceiver = BatteryReceiver()
-            val batteryFilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
-            registerReceiver(batteryReceiver, batteryFilter)
-
-            //监听蓝牙状态变化
-            val bluetoothReceiver = BluetoothReceiver()
-            val filter = IntentFilter().apply {
-                addAction(BluetoothDevice.ACTION_FOUND)
-                addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)
-                addAction(BluetoothAdapter.ACTION_STATE_CHANGED)
-                addAction(BluetoothAdapter.ACTION_SCAN_MODE_CHANGED)
-                addAction(BluetoothAdapter.ACTION_LOCAL_NAME_CHANGED)
-                addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED)
-                addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED)
-                addAction(BluetoothDevice.ACTION_ACL_CONNECTED)
-                addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED)
-            }
-            registerReceiver(bluetoothReceiver, filter)
             if (SettingUtils.enableBluetooth) {
                 val bluetoothScanServiceIntent = Intent(this, BluetoothScanService::class.java)
                 bluetoothScanServiceIntent.action = ACTION_START
@@ -215,14 +193,6 @@ class App : Application(), CactusCallback, Configuration.Provider by Core {
             }
             registerReceiver(networkReceiver, networkFilter)
 
-            //监听锁屏&解锁
-            val lockScreenReceiver = LockScreenReceiver()
-            val lockScreenFilter = IntentFilter().apply {
-                addAction(Intent.ACTION_SCREEN_OFF)
-                addAction(Intent.ACTION_SCREEN_ON)
-                addAction(Intent.ACTION_USER_PRESENT)
-            }
-            registerReceiver(lockScreenReceiver, lockScreenFilter)
             //靠近听筒关屏
             ProximitySensorScreenHelper.refresh(this)
             //Cactus 集成双进程前台服务，JobScheduler，onePix(一像素)，WorkManager，无声音乐

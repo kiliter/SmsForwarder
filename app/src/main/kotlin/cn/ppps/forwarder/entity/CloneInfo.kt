@@ -1,10 +1,8 @@
 package cn.ppps.forwarder.entity
 
 import com.google.gson.annotations.SerializedName
-import cn.ppps.forwarder.database.entity.Frpc
 import cn.ppps.forwarder.database.entity.Rule
 import cn.ppps.forwarder.database.entity.Sender
-import cn.ppps.forwarder.database.entity.Task
 import java.io.Serializable
 
 data class CloneInfo(
@@ -22,10 +20,4 @@ data class CloneInfo(
 
     @SerializedName("rule_list")
     var ruleList: List<Rule>? = null,
-
-    @SerializedName("frpc_list")
-    var frpcList: List<Frpc>? = null,
-
-    @SerializedName("task_list")
-    var taskList: List<Task>? = null,
 ) : Serializable

@@ -71,10 +71,10 @@ class RuleRecyclerAdapter(
 
         fun bind(rule: Rule) {
             val icon = when (rule.type) {
-                "sms" -> R.drawable.auto_task_icon_sms
-                "call" -> R.drawable.auto_task_icon_incall
-                "app" -> R.drawable.auto_task_icon_start_activity
-                else -> R.drawable.auto_task_icon_sms
+                "sms" -> R.drawable.ic_forwarder
+                "call" -> R.drawable.ic_forwarder
+                "app" -> R.drawable.ic_forwarder
+                else -> R.drawable.ic_forwarder
             }
             image.setImageResource(icon)
             status.setImageResource(rule.statusImageId)

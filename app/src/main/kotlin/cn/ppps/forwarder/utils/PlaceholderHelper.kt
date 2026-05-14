@@ -26,22 +26,22 @@ class PlaceholderHelper private constructor() {
         private fun getParameter(viewId: Int, view: View): PlaceholderParameter? {
             val placeHolderColor = Color.parseColor("#DDDDDD")
             when (viewId) {
-                R.id.tv_ver_name, R.id.tv_time -> {
+                R.id.tv_time -> {
                     val summaryAnimation: Animation = ScaleAnimation(0.4f, 1f, 1f, 1f)
                     summaryAnimation.duration = 600
                     return getAnimationRectanglePlaceholder(view, summaryAnimation, placeHolderColor, 5)
                 }
-                R.id.tv_app_name, R.id.tv_from, R.id.tv_name -> {
+                R.id.tv_from, R.id.tv_name -> {
                     val titleAnimation: Animation = ScaleAnimation(0.3f, 1f, 1f, 1f)
                     titleAnimation.duration = 600
                     return getAnimationRectanglePlaceholder(view, titleAnimation, placeHolderColor, 5)
                 }
-                R.id.tv_pkg_name, R.id.tv_duration, R.id.tv_phone_number, R.id.tv_content -> {
+                R.id.tv_duration, R.id.tv_phone_number, R.id.tv_content -> {
                     val summaryAnimation2: Animation = ScaleAnimation(0.5f, 1f, 1f, 1f)
                     summaryAnimation2.duration = 400
                     return getAnimationRectanglePlaceholder(view, summaryAnimation2, placeHolderColor, 5)
                 }
-                R.id.iv_app_icon, R.id.iv_image, R.id.iv_sim_image, R.id.sb_letter, R.id.iv_copy, R.id.iv_call, R.id.iv_reply -> {
+                R.id.iv_image, R.id.iv_sim_image, R.id.sb_letter, R.id.iv_copy, R.id.iv_call, R.id.iv_reply -> {
                     val imageAnimation: Animation = ScaleAnimation(0.5f, 1f, 0.5f, 1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
                     imageAnimation.duration = 800
                     return getAnimationOvalPlaceholder(view, imageAnimation, placeHolderColor)

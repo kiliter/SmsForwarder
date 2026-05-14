@@ -29,9 +29,6 @@ class SmsReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         try {
-            //纯客户端模式
-            if (SettingUtils.enablePureClientMode) return
-
             //过滤广播
             if (intent.action != Telephony.Sms.Intents.SMS_RECEIVED_ACTION
                 && intent.action != Telephony.Sms.Intents.SMS_DELIVER_ACTION

@@ -11,7 +11,6 @@ import cn.ppps.forwarder.utils.ACTION_RESTART
 import cn.ppps.forwarder.utils.ACTION_START
 import cn.ppps.forwarder.utils.ACTION_STOP
 import cn.ppps.forwarder.utils.Log
-import cn.ppps.forwarder.utils.task.TaskUtils
 
 @Suppress("PrivatePropertyName", "DEPRECATION")
 class BluetoothScanService : Service() {
@@ -48,8 +47,6 @@ class BluetoothScanService : Service() {
             return
         }
         if (isRunning) return
-        // 清空已发现设备
-        TaskUtils.discoveredDevices = mutableMapOf()
         bluetoothAdapter?.startDiscovery()
         isRunning = true
     }

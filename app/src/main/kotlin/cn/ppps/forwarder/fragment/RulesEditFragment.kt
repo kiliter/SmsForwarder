@@ -44,7 +44,6 @@ import cn.ppps.forwarder.utils.CHECK_SIM_SLOT_ALL
 import cn.ppps.forwarder.utils.CHECK_START_WITH
 import cn.ppps.forwarder.utils.CommonUtils
 import cn.ppps.forwarder.utils.DataProvider
-import cn.ppps.forwarder.utils.EVENT_LOAD_APP_LIST
 import cn.ppps.forwarder.utils.EVENT_TOAST_ERROR
 import cn.ppps.forwarder.utils.FILED_CALL_TYPE
 import cn.ppps.forwarder.utils.FILED_INFORM_CONTENT
@@ -67,7 +66,6 @@ import cn.ppps.forwarder.utils.STATUS_ON
 import cn.ppps.forwarder.utils.SendUtils
 import cn.ppps.forwarder.utils.SettingUtils
 import cn.ppps.forwarder.utils.XToastUtils
-import cn.ppps.forwarder.workers.LoadAppListWorker
 import com.jeremyliao.liveeventbus.LiveEventBus
 import com.xuexiang.xaop.annotation.SingleClick
 import com.xuexiang.xpage.annotation.Page
@@ -120,10 +118,6 @@ class RulesEditFragment : BaseFragment<FragmentRulesEditBinding?>(), View.OnClic
     //已安装App信息列表
     private val appListSpinnerList = ArrayList<AppListAdapterItem>()
     private lateinit var appListSpinnerAdapter: AppListSpinnerAdapter<*>
-    private val appListObserver = Observer { it: String ->
-        Log.d(TAG, "EVENT_LOAD_APP_LIST: $it")
-        initAppSpinner()
-    }
 
     @JvmField
     @AutoWired(name = KEY_RULE_ID)
@@ -168,8 +162,6 @@ class RulesEditFragment : BaseFragment<FragmentRulesEditBinding?>(), View.OnClic
                 binding!!.tvMuRuleTips.setText(R.string.mu_rule_app_tips)
                 //初始化APP下拉列表
                 initAppSpinner()
-                //监听已安装App信息列表加载完成事件
-                LiveEventBus.get(EVENT_LOAD_APP_LIST, String::class.java).observeStickyForever(appListObserver)
             }
 
             "call" -> {
@@ -481,48 +473,12 @@ class RulesEditFragment : BaseFragment<FragmentRulesEditBinding?>(), View.OnClic
     }
 
     //初始化APP下拉列表
+    //Created By AiCoding(codex): 异步加载App列表功能已移除，保留方法骨架以避免编译错误
     private fun initAppSpinner() {
         if (ruleType != "app") return
 
-        //未开启异步获取已安装App信息开关时，规则编辑不显示已安装APP下拉框
-        if (!SettingUtils.enableLoadUserAppList && !SettingUtils.enableLoadSystemAppList) return
-
-        if (App.UserAppList.isEmpty() && App.SystemAppList.isEmpty()) {
-            XToastUtils.info(getString(R.string.loading_app_list))
-            val request = OneTimeWorkRequestBuilder<LoadAppListWorker>().build()
-            WorkManager.getInstance(XUtil.getContext()).enqueue(request)
-            return
-        }
-
-        appListSpinnerList.clear()
-        if (SettingUtils.enableLoadUserAppList) {
-            for (appInfo in App.UserAppList) {
-                if (TextUtils.isEmpty(appInfo.packageName)) continue
-                appListSpinnerList.add(AppListAdapterItem(appInfo.name, appInfo.icon, appInfo.packageName))
-            }
-        }
-        if (SettingUtils.enableLoadSystemAppList) {
-            for (appInfo in App.SystemAppList) {
-                if (TextUtils.isEmpty(appInfo.packageName)) continue
-                appListSpinnerList.add(AppListAdapterItem(appInfo.name, appInfo.icon, appInfo.packageName))
-            }
-        }
-
-        //列表为空也不显示下拉框
-        if (appListSpinnerList.isEmpty()) return
-
-        appListSpinnerAdapter = AppListSpinnerAdapter(appListSpinnerList).setIsFilterKey(true).setFilterColor("#EF5362").setBackgroundSelector(R.drawable.selector_custom_spinner_bg)
-        binding!!.spApp.setAdapter(appListSpinnerAdapter)
-        binding!!.spApp.setOnItemClickListener { _: AdapterView<*>, _: View, position: Int, _: Long ->
-            try {
-                val appInfo = appListSpinnerAdapter.getItemSource(position) as AppListAdapterItem
-                CommonUtils.insertOrReplaceText2Cursor(binding!!.etValue, appInfo.packageName.toString())
-            } catch (e: Exception) {
-                XToastUtils.error(e.message.toString())
-            }
-        }
-        binding!!.layoutAppList.visibility = View.VISIBLE
-
+        //已安装App列表自动加载功能已移除
+        //用户可手动输入包名
     }
 
     //初始化表单

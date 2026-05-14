@@ -6,8 +6,6 @@ import android.content.pm.PackageManager
 import android.net.wifi.WifiManager
 import androidx.core.app.ActivityCompat
 import cn.ppps.forwarder.App
-import cn.ppps.forwarder.server.model.SmsSendData
-import com.google.gson.Gson
 import com.xuexiang.xrouter.utils.TextUtils
 import com.xuexiang.xutil.XUtil
 import com.xuexiang.xutil.security.CipherUtils
@@ -73,33 +71,9 @@ class SmsCommandUtils {
                 }
 
                 "sms" -> {
-                    if (action == "send") {
-                        if (TextUtils.isEmpty(param)) return false
-
-                        try {
-                            val gson = Gson()
-                            val smsSendData = gson.fromJson(param, SmsSendData::class.java)
-                            Log.d(TAG, smsSendData.toString())
-
-                            //获取卡槽信息
-                            if (App.SimInfoList.isEmpty()) {
-                                App.SimInfoList = PhoneUtils.getSimMultiInfo()
-                            }
-                            Log.d(TAG, App.SimInfoList.toString())
-
-                            //发送卡槽: 1=SIM1, 2=SIM2
-                            val simSlotIndex = smsSendData.simSlot - 1
-                            //TODO：取不到卡槽信息时，采用默认卡槽发送
-                            val mSubscriptionId: Int = App.SimInfoList[simSlotIndex]?.mSubscriptionId ?: -1
-
-                            if (ActivityCompat.checkSelfPermission(XUtil.getContext(), Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-                                return false
-                            }
-                            PhoneUtils.sendSms(mSubscriptionId, smsSendData.phoneNumbers, smsSendData.msgContent)
-                        } catch (e: Exception) {
-                            Log.e(TAG, "Parsing SMS failed: " + e.message.toString())
-                        }
-                    }
+                    // TODO: 远程短信发送功能已移除，SmsSendData 类已被删除
+                    Log.d(TAG, "sms send command not supported")
+                    return false
                 }
             }
 

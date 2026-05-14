@@ -8,14 +8,12 @@ import cn.ppps.forwarder.App.Companion.CALL_TYPE_MAP
 import cn.ppps.forwarder.R
 import cn.ppps.forwarder.utils.AppUtils
 import cn.ppps.forwarder.utils.BatteryUtils
-import cn.ppps.forwarder.utils.HttpServerUtils
 import cn.ppps.forwarder.utils.Log
 import cn.ppps.forwarder.utils.PhoneUtils
 import cn.ppps.forwarder.utils.SettingUtils
 import cn.ppps.forwarder.utils.SettingUtils.Companion.enableSmsTemplate
 import cn.ppps.forwarder.utils.SettingUtils.Companion.extraDeviceMark
 import cn.ppps.forwarder.utils.SettingUtils.Companion.smsTemplate
-import cn.ppps.forwarder.utils.task.TaskUtils
 import com.xuexiang.xutil.net.NetworkUtils
 import com.xuexiang.xutil.resource.ResUtils.getString
 import java.io.Serializable
@@ -105,21 +103,14 @@ data class MsgInfo(
                 getString(R.string.tag_call_type),
                 CALL_TYPE_MAP[callType.toString()] ?: getString(R.string.unknown_call), encoderName
             )
-            .replaceTag(getString(R.string.tag_ipv4), TaskUtils.ipv4, encoderName)
-            .replaceTag(getString(R.string.tag_ipv6), TaskUtils.ipv6, encoderName)
-            .replaceTag(getString(R.string.tag_ip_list), TaskUtils.ipList, encoderName)
-            .replaceTag(getString(R.string.tag_battery_pct), "%.0f%%".format(TaskUtils.batteryPct), encoderName)
-            .replaceTag(getString(R.string.tag_battery_status), BatteryUtils.getStatus(TaskUtils.batteryStatus), encoderName)
-            .replaceTag(getString(R.string.tag_battery_plugged), BatteryUtils.getPlugged(TaskUtils.batteryPlugged), encoderName)
-            .replaceTag(getString(R.string.tag_battery_info), TaskUtils.batteryInfo, encoderName)
-            .replaceTag(
-                getString(R.string.tag_battery_info_simple),
-                "%.0f%%".format(TaskUtils.batteryPct)
-                        + with(BatteryUtils.getPlugged(TaskUtils.batteryPlugged)) {
-                    if (this == getString(R.string.battery_unknown)) "" else " - $this"
-                },
-                encoderName
-            )
+            .replaceTag(getString(R.string.tag_ipv4), "", encoderName)
+            .replaceTag(getString(R.string.tag_ipv6), "", encoderName)
+            .replaceTag(getString(R.string.tag_ip_list), "", encoderName)
+            .replaceTag(getString(R.string.tag_battery_pct), "", encoderName)
+            .replaceTag(getString(R.string.tag_battery_status), "", encoderName)
+            .replaceTag(getString(R.string.tag_battery_plugged), "", encoderName)
+            .replaceTag(getString(R.string.tag_battery_info), "", encoderName)
+            .replaceTag(getString(R.string.tag_battery_info_simple), "", encoderName)
             .replaceTag(
                 getString(R.string.tag_net_type), with(NetworkUtils.getNetStateType()) {
                     if (this == NetworkUtils.NetState.NET_NO || this == NetworkUtils.NetState.NET_UNKNOWN)
@@ -221,22 +212,6 @@ data class MsgInfo(
         if (this.indexOf(getString(R.string.tag_app_name)) == -1) return this
 
         var appName = ""
-        if (SettingUtils.enableLoadUserAppList && App.UserAppList.isNotEmpty()) {
-            for (appInfo in App.UserAppList) {
-                if (appInfo.packageName == packageName) {
-                    appName = appInfo.name
-                    break
-                }
-            }
-        }
-        if (TextUtils.isEmpty(appName) && SettingUtils.enableLoadSystemAppList && App.SystemAppList.isNotEmpty()) {
-            for (appInfo in App.SystemAppList) {
-                if (appInfo.packageName == packageName) {
-                    appName = appInfo.name
-                    break
-                }
-            }
-        }
 
         when (encoderName) {
             "Gson" -> appName = toJsonStr(appName)
@@ -247,27 +222,14 @@ data class MsgInfo(
     }
 
     //替换 {{定位信息}} 标签
+    //Created By AiCoding(codex): 定位信息由HttpServerUtils提供，该依赖已移除，返回原始字符串
     private fun String.replaceLocationTag(encoderName: String = ""): String {
         if (TextUtils.isEmpty(this)) return this
 
-        val location = HttpServerUtils.apiLocationCache
-        var locationStr = location.toString()
-        var address = location.address
-        when (encoderName) {
-            "Gson" -> {
-                locationStr = toJsonStr(locationStr)
-                address = toJsonStr(address)
-            }
-
-            "URLEncoder" -> {
-                locationStr = URLEncoder.encode(locationStr, "UTF-8")
-                address = URLEncoder.encode(address, "UTF-8")
-            }
-        }
-        return this.replaceTag(getString(R.string.tag_location), locationStr)
-            .replaceTag(getString(R.string.tag_location_longitude), location.longitude.toString())
-            .replaceTag(getString(R.string.tag_location_latitude), location.latitude.toString())
-            .replaceTag(getString(R.string.tag_location_address), address)
+        return this.replaceTag(getString(R.string.tag_location), "")
+            .replaceTag(getString(R.string.tag_location_longitude), "")
+            .replaceTag(getString(R.string.tag_location_latitude), "")
+            .replaceTag(getString(R.string.tag_location_address), "")
     }
 
     //直接插入json字符串需要转义

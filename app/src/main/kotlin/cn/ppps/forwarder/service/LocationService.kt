@@ -12,21 +12,14 @@ import android.os.IBinder
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
-import com.google.gson.Gson
 import cn.ppps.forwarder.App
 import cn.ppps.forwarder.entity.LocationInfo
 import cn.ppps.forwarder.utils.ACTION_RESTART
 import cn.ppps.forwarder.utils.ACTION_START
 import cn.ppps.forwarder.utils.ACTION_STOP
-import cn.ppps.forwarder.utils.HttpServerUtils
 import cn.ppps.forwarder.utils.LocationUtils
 import cn.ppps.forwarder.utils.Log
 import cn.ppps.forwarder.utils.SettingUtils
-import cn.ppps.forwarder.utils.TASK_CONDITION_LEAVE_ADDRESS
-import cn.ppps.forwarder.utils.TASK_CONDITION_TO_ADDRESS
-import cn.ppps.forwarder.utils.TaskWorker
-import cn.ppps.forwarder.utils.task.TaskUtils
-import cn.ppps.forwarder.workers.LocationWorker
 import com.king.location.LocationErrorCode
 import com.king.location.OnExceptionListener
 import com.king.location.OnLocationListener
@@ -90,9 +83,6 @@ class LocationService : Service() {
 
     private fun startService() {
         try {
-            //清空缓存
-            HttpServerUtils.apiLocationCache = LocationInfo()
-            TaskUtils.locationInfoOld = LocationInfo()
 
             if (SettingUtils.enableLocation && PermissionUtils.isGranted(android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION)) {
 
@@ -113,22 +103,6 @@ class LocationService : Service() {
                         }
 
                         Log.d(TAG, "locationInfoNew = $locationInfoNew")
-                        HttpServerUtils.apiLocationCache = locationInfoNew
-                        TaskUtils.locationInfoNew = locationInfoNew
-
-                        //触发自动任务
-                        val locationInfoOld = TaskUtils.locationInfoOld
-                        if (locationInfoOld.longitude != locationInfoNew.longitude || locationInfoOld.latitude != locationInfoNew.latitude || locationInfoOld.address != locationInfoNew.address) {
-                            Log.d(TAG, "locationInfoOld = $locationInfoOld")
-
-                            val gson = Gson()
-                            val locationJsonOld = gson.toJson(locationInfoOld)
-                            val locationJsonNew = gson.toJson(locationInfoNew)
-                            enqueueLocationWorkerRequest(TASK_CONDITION_TO_ADDRESS, locationJsonOld, locationJsonNew)
-                            enqueueLocationWorkerRequest(TASK_CONDITION_LEAVE_ADDRESS, locationJsonOld, locationJsonNew)
-
-                            TaskUtils.locationInfoOld = locationInfoNew
-                        }
                     }
                 })
 
@@ -156,9 +130,6 @@ class LocationService : Service() {
     }
 
     private fun stopService() {
-        //清空缓存
-        HttpServerUtils.apiLocationCache = LocationInfo()
-        TaskUtils.locationInfoOld = LocationInfo()
 
         isRunning = try {
             //如果已经开始定位，则先停止定位
@@ -194,18 +165,6 @@ class LocationService : Service() {
         } else {
             Log.w(TAG, "onException: GPS未开启")
         }
-    }
-
-    private fun enqueueLocationWorkerRequest(
-        conditionType: Int, locationJsonOld: String, locationJsonNew: String
-    ) {
-        val locationWorkerRequest = OneTimeWorkRequestBuilder<LocationWorker>().setInputData(
-            workDataOf(
-                TaskWorker.CONDITION_TYPE to conditionType, "locationJsonOld" to locationJsonOld, "locationJsonNew" to locationJsonNew
-            )
-        ).build()
-
-        WorkManager.getInstance(applicationContext).enqueue(locationWorkerRequest)
     }
 
     private fun handleLocationStatusChanged() {

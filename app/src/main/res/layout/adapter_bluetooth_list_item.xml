@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/auto_task_icon_bluetooth"
+            android:src="@drawable/ic_bt_bluetooth"
             tools:ignore="ContentDescription" />
 
         <LinearLayout

@@ -39,17 +39,11 @@ class ForegroundService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-        //纯客户端模式
-        if (SettingUtils.enablePureClientMode) return
-
         //创建通知渠道
         createNotificationChannel()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-
-        //纯客户端模式
-        if (SettingUtils.enablePureClientMode) return START_NOT_STICKY
 
         if (intent != null) {
             when (intent.action) {
@@ -141,7 +135,7 @@ class ForegroundService : Service() {
         if (largeIconResId != null) {
             builder.setLargeIcon(BitmapFactory.decodeResource(resources, largeIconResId))
         } else {
-            builder.setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.ic_menu_frpc))
+            builder.setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.ic_forwarder))
         }
 
         return builder.build()
