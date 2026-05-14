@@ -1,0 +1,19 @@
+app/src/main/kotlin/cn/ppps/forwarder/activity/SplashActivity.kt
+  s_6d832a04dbe5b0::t_70c918b4988d6e 49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "4445b8bea5903602eb8767320bf0b06741ca6f24",
+  "prompts": {},
+  "sessions": {
+    "s_6d832a04dbe5b0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6f59bb6d-1185-40d2-91a8-d49eae5abc8d",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "kiliter <kiliter@qq.com>"
+    }
+  }
+}
