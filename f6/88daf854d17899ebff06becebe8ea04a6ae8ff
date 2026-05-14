@@ -1,0 +1,21 @@
+app/src/main/kotlin/cn/ppps/forwarder/service/ForegroundService.kt
+  s_6d832a04dbe5b0::t_ca02a765e3bf45 74,82,100,127-128,133-138,150-151,153
+app/src/main/kotlin/cn/ppps/forwarder/utils/SmsCommandUtils.kt
+  s_6d832a04dbe5b0::t_dd9ac8c7a07519 29,109
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "f688daf854d17899ebff06becebe8ea04a6ae8ff",
+  "prompts": {},
+  "sessions": {
+    "s_6d832a04dbe5b0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6f59bb6d-1185-40d2-91a8-d49eae5abc8d",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "kiliter <kiliter@qq.com>"
+    }
+  }
+}
