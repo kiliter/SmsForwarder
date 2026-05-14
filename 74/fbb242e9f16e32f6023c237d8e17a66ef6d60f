@@ -1,0 +1,22 @@
+app/src/main/kotlin/cn/ppps/forwarder/database/AppDatabase.kt
+  s_6d832a04dbe5b0::t_245c066bf8d6c5 25,27
+  s_6d832a04dbe5b0::t_1cc7d5837f3431 77
+  s_6d832a04dbe5b0::t_6e85d6b81d5027 434-441
+  s_6d832a04dbe5b0::t_b0133c001bf36a 54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "74fbb242e9f16e32f6023c237d8e17a66ef6d60f",
+  "prompts": {},
+  "sessions": {
+    "s_6d832a04dbe5b0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6f59bb6d-1185-40d2-91a8-d49eae5abc8d",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "kiliter <kiliter@qq.com>"
+    }
+  }
+}
