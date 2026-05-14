@@ -91,18 +91,19 @@ android {
         }
     }
 
+    // Created By AiCoding(codex): 当keystore配置文件不存在时，回退使用Android默认debug签名
     signingConfigs {
         release {
-            keyAlias keyProps['keyAlias']
-            keyPassword keyProps['keyPassword']
-            storeFile keyProps['storeFile'] ? file(keyProps['storeFile']) : null
-            storePassword keyProps['storePassword']
+            keyAlias keyProps['keyAlias'] ?: 'androiddebugkey'
+            keyPassword keyProps['keyPassword'] ?: 'android'
+            storeFile keyProps['storeFile'] ? file(keyProps['storeFile']) : file(System.getProperty('user.home') + '/.android/debug.keystore')
+            storePassword keyProps['storePassword'] ?: 'android'
         }
         debug {
-            keyAlias keyProps['keyAlias']
-            keyPassword keyProps['keyPassword']
-            storeFile keyProps['storeFile'] ? file(keyProps['storeFile']) : null
-            storePassword keyProps['storePassword']
+            keyAlias keyProps['keyAlias'] ?: 'androiddebugkey'
+            keyPassword keyProps['keyPassword'] ?: 'android'
+            storeFile keyProps['storeFile'] ? file(keyProps['storeFile']) : file(System.getProperty('user.home') + '/.android/debug.keystore')
+            storePassword keyProps['storePassword'] ?: 'android'
         }
     }
 

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew assembleDebug)",
+      "Bash(chmod +x ./gradlew)",
+      "Bash(java *)",
+      "Bash(./gradlew --stop)",
+      "Bash(mkdir -p ~/.android)",
+      "Bash(keytool -genkey -v -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname \"CN=Android Debug, O=Android, C=US\")",
+      "Skill(superpowers:brainstorming)",
+      "Skill(superpowers:writing-plans)",
+      "Skill(superpowers:subagent-driven-development)",
+      "Bash(git *)",
+      "Bash(xargs -I{} sh -c '[ -f {} ] && echo \"EXISTS: {}\" || true')"
+    ]
+  }
+}
