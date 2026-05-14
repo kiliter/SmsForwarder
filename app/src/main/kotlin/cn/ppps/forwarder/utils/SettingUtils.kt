@@ -59,15 +59,6 @@ class SettingUtils private constructor() {
         //是否转发应用通知——仅锁屏状态
         var enableNotUserPresent: Boolean by SharedPreference(SP_ENABLE_NOT_USER_PRESENT, false)
 
-        //是否加载应用列表
-        var enableLoadAppList: Boolean by SharedPreference(ENABLE_LOAD_APP_LIST, false)
-
-        //是否加载应用列表——用户应用
-        var enableLoadUserAppList: Boolean by SharedPreference(ENABLE_LOAD_USER_APP_LIST, false)
-
-        //是否加载应用列表——系统应用
-        var enableLoadSystemAppList: Boolean by SharedPreference(ENABLE_LOAD_SYSTEM_APP_LIST, false)
-
         //过滤多久内重复消息
         var duplicateMessagesLimits: Int by SharedPreference(SP_DUPLICATE_MESSAGES_LIMITS, 0)
 
@@ -124,12 +115,6 @@ class SettingUtils private constructor() {
 
         //自定义模板
         var smsTemplate: String by SharedPreference(SP_SMS_TEMPLATE, "")
-
-        //是否纯客户端模式
-        var enablePureClientMode: Boolean by SharedPreference(SP_PURE_CLIENT_MODE, false)
-
-        //是否纯任务模式
-        var enablePureTaskMode: Boolean by SharedPreference(SP_PURE_TASK_MODE, false)
 
         //是否调试模式
         var enableDebugMode: Boolean by SharedPreference(SP_DEBUG_MODE, false)
