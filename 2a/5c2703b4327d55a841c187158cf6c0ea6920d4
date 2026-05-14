@@ -1,0 +1,36 @@
+app/src/main/kotlin/cn/ppps/forwarder/fragment/RulesEditFragment.kt
+  s_6d832a04dbe5b0::t_ae480c9def49fb 476,480-481
+app/src/main/res/layout/adapter_bluetooth_list_item.xml
+  s_6d832a04dbe5b0::t_97034a90ef23be 29
+app/src/main/kotlin/cn/ppps/forwarder/entity/MsgInfo.kt
+  s_6d832a04dbe5b0::t_77a45d18c689d6 225,229-232
+  s_6d832a04dbe5b0::t_374ef860449854 106-113
+app/src/main/res/values/strings.xml
+  s_6d832a04dbe5b0::t_8ced6559d321ff 1116-1127
+app/src/main/kotlin/cn/ppps/forwarder/utils/PlaceholderHelper.kt
+  s_6d832a04dbe5b0::t_0ca8bb98223665 29,34,39,44
+app/src/main/kotlin/cn/ppps/forwarder/utils/SmsCommandUtils.kt
+  s_6d832a04dbe5b0::t_62c5d7993a5503 74-76
+app/src/main/kotlin/cn/ppps/forwarder/adapter/RuleRecyclerAdapter.kt
+  s_6d832a04dbe5b0::t_c083f1c007e473 74-77
+app/src/main/kotlin/cn/ppps/forwarder/database/entity/Rule.kt
+  s_6d832a04dbe5b0::t_a81b8fedc9c8d2 130,132-134
+app/src/main/kotlin/cn/ppps/forwarder/service/ForegroundService.kt
+  s_6d832a04dbe5b0::t_0329b1561ebc4c 138
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "2a5c2703b4327d55a841c187158cf6c0ea6920d4",
+  "prompts": {},
+  "sessions": {
+    "s_6d832a04dbe5b0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6f59bb6d-1185-40d2-91a8-d49eae5abc8d",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "kiliter <kiliter@qq.com>"
+    }
+  }
+}
