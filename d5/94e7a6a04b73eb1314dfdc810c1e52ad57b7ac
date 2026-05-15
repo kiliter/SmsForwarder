@@ -1,0 +1,32 @@
+app/src/main/kotlin/cn/ppps/forwarder/fragment/AboutFragment.kt
+  s_061a2e4bd65d43::t_0eba7404dfc148 43
+.claude/settings.local.json
+  s_6d832a04dbe5b0::t_b99e34292231b1 17-18
+  s_6d832a04dbe5b0::t_5aea0320398f66 14-16
+app/src/main/kotlin/cn/ppps/forwarder/fragment/SettingsFragment.kt
+  s_061a2e4bd65d43::t_652f4c0fa76736 468
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "d594e7a6a04b73eb1314dfdc810c1e52ad57b7ac",
+  "prompts": {},
+  "sessions": {
+    "s_061a2e4bd65d43": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "06cc28f7-a0b9-4fe4-a40c-6876465995bd",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "kiliter <kiliter@qq.com>"
+    },
+    "s_6d832a04dbe5b0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6f59bb6d-1185-40d2-91a8-d49eae5abc8d",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "kiliter <kiliter@qq.com>"
+    }
+  }
+}
