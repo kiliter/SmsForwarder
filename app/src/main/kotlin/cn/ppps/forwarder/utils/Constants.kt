@@ -12,7 +12,6 @@ object Worker {
 const val ACTION_START = "START"
 const val ACTION_STOP = "STOP"
 const val ACTION_RESTART = "RESTART"
-const val ACTION_STOP_ALARM = "STOP_ALARM"
 const val ACTION_UPDATE_NOTIFICATION = "UPDATE_NOTIFICATION"
 const val EXTRA_UPDATE_NOTIFICATION = "EXTRA_UPDATE_NOTIFICATION"
 
@@ -151,37 +150,9 @@ const val KEY_SENDER_TEST = "key_sender_test"
 const val KEY_RULE_ID = "key_rule_id"
 const val KEY_RULE_TYPE = "key_rule_type"
 const val KEY_RULE_CLONE = "key_rule_clone"
-const val KEY_DEFAULT_SELECTION = "key_default_selection"
-
-const val EVENT_KEY_SIM_SLOT = "EVENT_KEY_SIM_SLOT"
-const val EVENT_KEY_PHONE_NUMBERS = "EVENT_KEY_PHONE_NUMBERS"
-
 //在线升级&预览计划URL
 const val KEY_UPDATE_URL = "https://xupdate.ppps.cn/update/checkVersion"
 const val KEY_PREVIEW_URL = "https://xupdate.ppps.cn/preview/checkVersion"
-
-const val SP_BATTERY_INFO = "battery_info"
-const val SP_BATTERY_STATUS = "battery_status"
-const val SP_BATTERY_LEVEL = "battery_level"
-const val SP_BATTERY_PCT = "battery_pct"
-const val SP_BATTERY_PLUGGED = "battery_plugged"
-
-const val SP_NETWORK_STATE = "network_state"
-const val SP_DATA_SIM_SLOT = "data_sim_slot"
-const val SP_WIFI_SSID = "wifi_ssid"
-const val SP_IPV4 = "ipv4"
-const val SP_IPV6 = "ipv6"
-const val SP_IP_LIST = "ip_list"
-const val SP_SIM_STATE = "sim_state"
-const val SP_LOCATION_INFO_OLD = "location_info_old"
-const val SP_LOCATION_INFO_NEW = "location_info_new"
-const val SP_LOCK_SCREEN_ACTION = "lock_screen_action"
-const val SP_CONNECTED_DEVICE = "connected_device"
-const val SP_DISCOVERED_DEVICES = "discovered_devices"
-const val SP_BLUETOOTH_STATE = "bluetooth_state"
-
-//SIM卡已准备就绪时，延迟5秒（给够搜索信号时间）才执行任务
-const val DELAY_TIME_AFTER_SIM_READY = 5000L
 
 //切换语言需要替换的自定义模板标签列表
 //val TAG_LANG = arrayOf("zh_CN", "zh_TW", "en")

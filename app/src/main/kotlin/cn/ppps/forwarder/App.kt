@@ -3,11 +3,10 @@ package cn.ppps.forwarder
 import android.annotation.SuppressLint
 import android.app.Application
 import android.app.PendingIntent
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothDevice
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import cn.ppps.forwarder.BuildConfig
 import android.location.Geocoder
 import android.net.ConnectivityManager
 import android.net.wifi.WifiManager

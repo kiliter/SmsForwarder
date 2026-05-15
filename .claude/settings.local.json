@@ -15,7 +15,9 @@
       "Bash(ls -la drawable/ic_menu_task.xml drawable/ic_menu_server.xml drawable/ic_menu_client.xml drawable/ic_menu_frpc.xml drawable/ic_menu_app.xml)",
       "Bash(ls drawable/auto_task_icon_*.xml)",
       "Bash(ls raw/frpc.toml)",
-      "Bash(./gradlew clean *)"
+      "Bash(./gradlew clean *)",
+      "Bash(./gradlew :app:assembleDebug)",
+      "*"
     ]
   }
 }
