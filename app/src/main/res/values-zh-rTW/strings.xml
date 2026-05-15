@@ -68,9 +68,6 @@
     <string name="menu_frpc">內網穿透·Frpc</string>
     <string name="menu_apps">應用列表·複製包名</string>
     <string name="menu_logcat">日誌抓取·Logcat</string>
-    <string name="menu_help">使用幫助</string>
-    <string name="menu_about">關於軟體</string>
-
     <string name="about_app_version">軟體版本：%s</string>
     <string name="about_app_version_tips" formatted="false">版本名稱：%s\n版本代碼：%s\n構建時間：%s\nGit提交ID：%s</string>
     <string name="about_cache_size">緩存大小：%s</string>
@@ -85,7 +82,6 @@
     <string name="about_item_donation_link">打賞名單</string>
     <string name="url_project_github">https://github.com/pppscn/SmsForwarder</string>
     <string name="url_project_gitee">https://gitee.com/pp/SmsForwarder</string>
-    <string name="url_help">https://gitee.com/pp/SmsForwarder/wikis/pages</string>
     <string name="url_donation_link">https://gitee.com/pp/SmsForwarder.wiki/raw/master/%E6%89%93%E8%B5%8F%E5%90%8D%E5%8D%95.md</string>
     <string name="url_wechat_miniprogram">https://gitee.com/pp/SmsForwarder/raw/main/pic/wechat_miniprogram.jpg</string>
     <string name="url_tips">https://gitee.com/pp/SmsForwarder.wiki/raw/master/tips_tc.json</string>

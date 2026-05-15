@@ -20,11 +20,8 @@ import cn.ppps.forwarder.R
 import cn.ppps.forwarder.adapter.menu.DrawerAdapter
 import cn.ppps.forwarder.adapter.menu.DrawerItem
 import cn.ppps.forwarder.adapter.menu.SimpleItem
-import cn.ppps.forwarder.adapter.menu.SpaceItem
 import cn.ppps.forwarder.core.BaseActivity
-import cn.ppps.forwarder.core.webview.AgentWebActivity
 import cn.ppps.forwarder.databinding.ActivityMainBinding
-import cn.ppps.forwarder.fragment.AboutFragment
 import cn.ppps.forwarder.fragment.LogsFragment
 import cn.ppps.forwarder.fragment.RulesFragment
 import cn.ppps.forwarder.fragment.SendersFragment
@@ -52,8 +49,6 @@ class MainActivity : BaseActivity<ActivityMainBinding?>(), DrawerAdapter.OnItemS
     private val POS_RULE = 1
     private val POS_SENDER = 2
     private val POS_SETTING = 3
-    private val POS_HELP = 5
-    private val POS_ABOUT = 6
 
     private lateinit var mTabLayout: TabLayout
     private lateinit var mSlidingRootNav: SlidingRootNav
@@ -184,9 +179,6 @@ class MainActivity : BaseActivity<ActivityMainBinding?>(), DrawerAdapter.OnItemS
                 createItemFor(POS_RULE),
                 createItemFor(POS_SENDER),
                 createItemFor(POS_SETTING),
-                SpaceItem(15),
-                createItemFor(POS_HELP),
-                createItemFor(POS_ABOUT),
             )
         )
         mAdapter.setListener(this)
@@ -214,8 +206,6 @@ class MainActivity : BaseActivity<ActivityMainBinding?>(), DrawerAdapter.OnItemS
                 tab?.select()
                 mSlidingRootNav.closeMenu()
             }
-            POS_HELP -> AgentWebActivity.goWeb(this, getString(R.string.url_help))
-            POS_ABOUT -> openNewPage(AboutFragment::class.java)
         }
     }
 

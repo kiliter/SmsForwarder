@@ -11,7 +11,11 @@
       "Skill(superpowers:writing-plans)",
       "Skill(superpowers:subagent-driven-development)",
       "Bash(git *)",
-      "Bash(xargs -I{} sh -c '[ -f {} ] && echo \"EXISTS: {}\" || true')"
+      "Bash(xargs -I{} sh -c '[ -f {} ] && echo \"EXISTS: {}\" || true')",
+      "Bash(ls -la drawable/ic_menu_task.xml drawable/ic_menu_server.xml drawable/ic_menu_client.xml drawable/ic_menu_frpc.xml drawable/ic_menu_app.xml)",
+      "Bash(ls drawable/auto_task_icon_*.xml)",
+      "Bash(ls raw/frpc.toml)",
+      "Bash(./gradlew clean *)"
     ]
   }
 }

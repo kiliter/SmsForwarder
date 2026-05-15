@@ -90,9 +90,6 @@
     <string name="menu_logs_step">转发日志·第四步</string>
 
     <string name="menu_logcat">日志抓取·Logcat</string>
-    <string name="menu_help">使用帮助</string>
-    <string name="menu_about">关于软件</string>
-
     <string name="about_app_version">软件版本：%s</string>
     <string name="about_app_version_tips" formatted="false">版本名称：%s\n版本代码：%s\n构建时间：%s\nGit提交ID：%s</string>
     <string name="about_cache_size">缓存大小：%s</string>
@@ -105,7 +102,6 @@
     <string name="about_item_donation_link">打赏名单</string>
     <string name="url_project_github">https://github.com/pppscn/SmsForwarder</string>
     <string name="url_project_gitee">https://gitee.com/pp/SmsForwarder</string>
-    <string name="url_help">https://gitee.com/pp/SmsForwarder/wikis/pages</string>
     <string name="url_donation_link">https://gitee.com/pp/SmsForwarder.wiki/raw/master/%E6%89%93%E8%B5%8F%E5%90%8D%E5%8D%95.md</string>
     <string name="url_wechat_miniprogram">https://gitee.com/pp/SmsForwarder/raw/main/pic/wechat_miniprogram.jpg</string>
     <string name="url_tips">https://gitee.com/pp/SmsForwarder.wiki/raw/master/tips.json</string>

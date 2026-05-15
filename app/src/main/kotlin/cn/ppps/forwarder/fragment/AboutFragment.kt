@@ -40,9 +40,7 @@ class AboutFragment : BaseFragment<FragmentAboutBinding?>(), SuperTextView.OnSup
     }
 
     override fun initTitle(): TitleBar? {
-        val titleBar = super.initTitle()!!.setImmersive(false)
-        titleBar.setTitle(R.string.menu_about)
-        return titleBar
+        return super.initTitle()!!.setImmersive(false)
     }
 
     /**
