@@ -11,7 +11,7 @@
     <string name="insert_tag_receive_time">Receive Time</string>
     <string name="insert_tag_current_time">Current Time</string>
     <string name="insert_tag_device_name">Device Name</string>
-    <string name="insert_tag_app_version">SmsF Version</string>
+    <string name="insert_tag_app_version">HaoYu SMS Forwarder Version</string>
     <string name="insert_tag_call_type">Call Type</string>
     <string name="insert_tag_location">Location</string>
     <string name="insert_tag_location_longitude">Longitude</string>
@@ -121,7 +121,7 @@
     <string name="copySuccess">Successfully copied</string>
     <string name="tipWaitService">Starting service</string>
 
-    <string name="app_name">SmsForwarder</string>
+    <string name="app_name">HaoYu SMS Forwarder</string>
     <string name="notification_content">Not only forwarding messages, \nbut also a must-have for backup devices!\nFree and open source, no selling!</string>
     <!--Common-->
     <string name="cancel">Cancel</string>
@@ -379,8 +379,8 @@
     <string name="user_app">User App</string>
     <string name="system_app">System App</string>
     <string name="tips_get_installed_apps">Please grant GET_INSTALLED_APPS permission</string>
-    <string name="tips_notification">Please grant Notification permission, in order to keep the App alive!</string>
-    <string name="tips_notification_listener">Please grant Notification reading permission to SmsForwarder, before other Apps\'s notification could be forwarded. Forwarding automatically canceled!</string>
+    <string name="tips_notification">Please grant Notification permission, in order to keep the HaoYu SMS Forwarder alive!</string>
+    <string name="tips_notification_listener">Please grant Notification reading permission to HaoYu SMS Forwarder, before other Apps\'s notification could be forwarded. Forwarding automatically canceled!</string>
     <string name="pushplus_website">Official website</string>
     <string name="pushplus_plus">www.pushplus.plus</string>
     <string name="pushplus_hxtrip">pushplus.hxtrip.com</string>
@@ -541,7 +541,7 @@
     <string name="auto_check">Auto check</string>
     <string name="check_update">Check</string>
     <string name="join_preview_program">Join Preview Program</string>
-    <string name="join_preview_program_tips">Check out weekly builds of SmsF for early access to new features and bug fixes</string>
+    <string name="join_preview_program_tips">Check out weekly builds of HaoYu SMS Forwarder for early access to new features and bug fixes</string>
     <string name="clear_cache">Clear</string>
 
     <string name="sender_name_status">Channel Name/Status</string>
@@ -561,7 +561,7 @@
     <string name="bark_server_regex">^https?://[^/]+/[^/]+/.*</string>
     <string name="bark_server_error">The Url format is wrong, e.g. https://api.day.app/XXXXXXXX/</string>
     <string name="bark_group">Group Name</string>
-    <string name="bark_group_tips">Opt., e.g. SmsForwarder</string>
+    <string name="bark_group_tips">Opt., e.g. HaoYu SMS Forwarder</string>
     <string name="bark_icon">Message Icon</string>
     <string name="bark_icon_tips">Opt., fill in Url, the picture should not be too big</string>
     <string name="bark_call">Keep Reminding</string>
@@ -637,7 +637,7 @@
     <string name="privacy_content_4">" Explain to you how we collect, store, protect, use and make your information available externally, and explain your rights.\n</string>
     <string name="privacy_content_5">For more details, please check "</string>
     <string name="privacy_content_6">"full text.\n\n</string>
-    <string name="privacy_content_7">"Please grant Notification permission, in order to keep the App alive!</string>
+    <string name="privacy_content_7">"Please grant Notification permission, in order to keep the HaoYu SMS Forwarder alive!</string>
     <string name="request_succeeded">Request succeeded</string>
     <string name="request_failed">Request failed: </string>
     <string name="request_failed_tips">Request failed: %s</string>
@@ -1020,7 +1020,7 @@
     <string name="specified_sender">Specified Sender</string>
 
     <string name="multi_languages">Multilingual</string>
-    <string name="multi_languages_tips">Default language shown on SmsF\'s interface at startup.</string>
+    <string name="multi_languages_tips">Default language shown on HaoYu SMS Forwarder\'s interface at startup.</string>
     <string name="multi_languages_toast">Need to restart the app to switch to your selected language.</string>
     <string name="follow_system">Follow Sys.</string>
     <string name="simplified_chinese">简体中文</string>

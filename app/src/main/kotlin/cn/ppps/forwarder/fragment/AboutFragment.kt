@@ -1,9 +1,7 @@
 package cn.ppps.forwarder.fragment
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import cn.ppps.forwarder.App
 import cn.ppps.forwarder.BuildConfig
 import cn.ppps.forwarder.R
 import cn.ppps.forwarder.core.BaseFragment
@@ -15,15 +13,12 @@ import cn.ppps.forwarder.utils.CommonUtils.Companion.gotoProtocol
 import cn.ppps.forwarder.utils.CommonUtils.Companion.previewMarkdown
 import cn.ppps.forwarder.utils.CommonUtils.Companion.previewPicture
 import cn.ppps.forwarder.utils.HistoryUtils
-import cn.ppps.forwarder.utils.Log
 import cn.ppps.forwarder.utils.SettingUtils
 import cn.ppps.forwarder.utils.XToastUtils
 import cn.ppps.forwarder.utils.sdkinit.XUpdateInit
 import com.xuexiang.xaop.annotation.SingleClick
 import com.xuexiang.xpage.annotation.Page
 import com.xuexiang.xui.widget.actionbar.TitleBar
-import com.xuexiang.xui.widget.dialog.materialdialog.DialogAction
-import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -105,7 +100,7 @@ class AboutFragment : BaseFragment<FragmentAboutBinding?>(), SuperTextView.OnSup
                     String.format(
                         getString(R.string.about_app_version_tips),
                         AppUtils.getAppVersionName(),
-                        AppUtils.getAppVersionCode(),
+                        AppUtils.getAppVersionCode().toString(),
                         BuildConfig.BUILD_TIME,
                         BuildConfig.GIT_COMMIT_ID
                     )

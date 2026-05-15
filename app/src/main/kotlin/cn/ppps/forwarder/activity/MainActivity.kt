@@ -42,7 +42,7 @@ import com.yarolegovich.slidingrootnav.SlidingRootNav
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
 import com.yarolegovich.slidingrootnav.callback.DragStateListener
 
-@Suppress("PrivatePropertyName", "unused", "DEPRECATION")
+@Suppress("PrivatePropertyName", "unused")
 class MainActivity : BaseActivity<ActivityMainBinding?>(), DrawerAdapter.OnItemSelectedListener {
 
     private val POS_LOG = 0

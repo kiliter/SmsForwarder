@@ -260,7 +260,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding?>(), View.OnClickL
                             }
                             try {
                                 val srcDirPath = App.context.cacheDir.absolutePath + "/logs"
-                                val destDirPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).path + "/SmsForwarder"
+                                val destDirPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).path + "/浩宇短信转发"
                                 if (FileUtils.copyDir(srcDirPath, destDirPath, null)) {
                                     XToastUtils.success(getString(R.string.log_export_success) + destDirPath)
                                 } else {

@@ -40,7 +40,7 @@
     <string name="insert_tag_receive_time">接收时间</string>
     <string name="insert_tag_current_time">当前时间</string>
     <string name="insert_tag_device_name">设备名称</string>
-    <string name="insert_tag_app_version">SmsF版本</string>
+    <string name="insert_tag_app_version">浩宇短信转发版本</string>
     <string name="insert_tag_call_type">通话类型</string>
     <string name="insert_tag_location">定位信息</string>
     <string name="insert_tag_location_longitude">定位经度</string>
@@ -151,8 +151,8 @@
     <string name="copySuccess">复制成功</string>
     <string name="tipWaitService">正在启动服务</string>
 
-    <string name="app_name">短信转发器</string>
-    <string name="notification_content">不仅只转发短信，备用机必备神器！\n免费开源，禁止贩卖！</string>
+    <string name="app_name">浩宇短信转发</string>
+    <string name="notification_content">浩宇网络工作室正在监听你的短信!</string>
     <!--Common-->
     <string name="cancel">取消</string>
     <string name="discard">丢弃</string>
@@ -409,8 +409,8 @@
     <string name="user_app">用户应用</string>
     <string name="system_app">系统应用</string>
     <string name="tips_get_installed_apps">请先授予获取应用列表权限</string>
-    <string name="tips_notification">请先授予发送通知权限，有利于《短信转发器》保活！</string>
-    <string name="tips_notification_listener">请先授予《短信转发器》通知使用权，否则无法转发APP通知，已经自动关闭转发!</string>
+    <string name="tips_notification">请先授予发送通知权限，有利于《浩宇短信转发》保活！</string>
+    <string name="tips_notification_listener">请先授予《浩宇短信转发》通知使用权，否则无法转发APP通知，已经自动关闭转发!</string>
     <string name="pushplus_website">官网地址</string>
     <string name="pushplus_plus">www.pushplus.plus</string>
     <string name="pushplus_hxtrip">pushplus.hxtrip.com</string>
@@ -570,8 +570,8 @@
     <string name="tip_can_not_get_sim_info">未获取到卡槽%d中的SIM卡信息</string>
     <string name="auto_check">启动时检查</string>
     <string name="check_update">检查更新</string>
-    <string name="join_preview_program">加入SmsF预览体验计划</string>
-    <string name="join_preview_program_tips">检查SmsF每周构建版更新，率先体验新功能与Bug修复</string>
+    <string name="join_preview_program">加入浩宇短信转发预览体验计划</string>
+    <string name="join_preview_program_tips">检查浩宇短信转发每周构建版更新，率先体验新功能与Bug修复</string>
     <string name="clear_cache">清理缓存</string>
 
     <string name="sender_name_status">通道名称/状态</string>
@@ -591,7 +591,7 @@
     <string name="bark_server_regex">^https?://[^/]+/[^/]+/.*</string>
     <string name="bark_server_error">Url格式错误，例：https://api.day.app/XXXXXXXX/</string>
     <string name="bark_group">分组名称</string>
-    <string name="bark_group_tips">可选，例：短信转发器</string>
+    <string name="bark_group_tips">可选，例：浩宇短信转发</string>
     <string name="bark_icon">消息图标</string>
     <string name="bark_icon_tips">可选，填写Url，图片不要太大</string>
     <string name="bark_call">持续提醒</string>
@@ -667,7 +667,7 @@
     <string name="privacy_content_4"> 向你说明我们会如何收集、存储、保护、使用及对外提供你的信息，并说明你享有的权利。\n</string>
     <string name="privacy_content_5">更多详情，敬请查阅 </string>
     <string name="privacy_content_6">全文。\n\n</string>
-    <string name="privacy_content_7">请先授予发送通知权限，有利于《短信转发器》保活！</string>
+    <string name="privacy_content_7">请先授予发送通知权限，有利于《浩宇短信转发》保活！</string>
     <string name="request_succeeded">请求成功</string>
     <string name="request_failed">请求失败：</string>
     <string name="request_failed_tips">请求失败：%s</string>
@@ -1050,7 +1050,7 @@
     <string name="specified_sender">指定通道</string>
 
     <string name="multi_languages">多语言设置</string>
-    <string name="multi_languages_tips">SmsForwarder启动时界面默认显示的语言</string>
+    <string name="multi_languages_tips">浩宇短信转发启动时界面默认显示的语言</string>
     <string name="multi_languages_toast">需要重启App以便切换到您选择的语言</string>
     <string name="follow_system">跟随系统</string>
     <string name="simplified_chinese">简体中文</string>
@@ -1110,15 +1110,9 @@
     <string name="invalid_bluetooth_mac_address">蓝牙设备MAC地址无效，例如：AA:BB:CC:DD:EE:FF</string>
     <string name="auto_start_redmi"><![CDATA[红米手机：授权管理 -> 自启动管理 -> 允许应用自启动]]></string>
 
-    <!--Created By AiCoding(codex): 以下字符串在精简过程中被移除，但布局文件仍在使用，重新添加 -->
-    <string name="about_frpc_version">Frpc版本：%s</string>
-    <string name="delete_frpc">删除动态库</string>
-    <string name="server_ip">服务端IP：</string>
-    <string name="server_port">端口：</string>
-    <string name="load_app_list">启动时异步获取已安装App列表</string>
-    <string name="load_app_list_tips">用于加速进入应用列表/编辑转发规则下拉选择/替换{{APP_NAME}}</string>
-    <string name="pure_client_mode">纯客户端模式</string>
-    <string name="pure_client_mode_tips">启动APP时直接进入主动控制·客户端</string>
-    <string name="pure_task_mode">纯自动任务模式</string>
-    <string name="pure_task_mode_tips">启动APP时直接进入自动任务</string>
+    <!--Created By AiCoding(codex): 以下字符串布局文件仍在使用 -->
+    <string name="about_frpc_version" translatable="false">Frpc版本：%s</string>
+    <string name="delete_frpc" translatable="false">删除动态库</string>
+    <string name="server_ip" translatable="false">服务端IP：</string>
+    <string name="server_port" translatable="false">端口：</string>
 </resources>

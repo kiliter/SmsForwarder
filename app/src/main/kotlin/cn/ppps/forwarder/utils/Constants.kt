@@ -135,7 +135,7 @@ const val TYPE_SOCKET = 15
 //前台服务
 const val FRONT_NOTIFY_ID = 0x1010
 const val FRONT_CHANNEL_ID = "cn.ppps.forwarder"
-const val FRONT_CHANNEL_NAME = "SmsForwarder Foreground Service"
+const val FRONT_CHANNEL_NAME = "浩宇短信转发 Foreground Service"
 
 //吐司监听
 const val EVENT_TOAST_SUCCESS = "key_toast_success"
