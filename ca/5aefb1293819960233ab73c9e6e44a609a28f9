@@ -1,0 +1,21 @@
+app/src/main/kotlin/cn/ppps/forwarder/App.kt
+  s_061a2e4bd65d43::t_b468c5532fdf31 9
+.claude/settings.local.json
+  s_061a2e4bd65d43::t_867d8d0711ec0b 18-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "ca5aefb1293819960233ab73c9e6e44a609a28f9",
+  "prompts": {},
+  "sessions": {
+    "s_061a2e4bd65d43": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "06cc28f7-a0b9-4fe4-a40c-6876465995bd",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "kiliter <kiliter@qq.com>"
+    }
+  }
+}
