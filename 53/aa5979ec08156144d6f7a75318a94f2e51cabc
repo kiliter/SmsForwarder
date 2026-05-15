@@ -1,0 +1,70 @@
+app/src/main/kotlin/cn/ppps/forwarder/App.kt
+  s_061a2e4bd65d43::t_72ee516f065c30 242
+  s_061a2e4bd65d43::t_2156afec3ac985 78
+app/src/main/res/values-zh-rCN/strings.xml
+  s_061a2e4bd65d43::t_aca4e4446bf0af 641
+  s_061a2e4bd65d43::t_06a2443602fa9d 125
+  s_061a2e4bd65d43::t_890505d96df573 1024
+  s_061a2e4bd65d43::t_6f9d8c090598e4 544
+  s_061a2e4bd65d43::t_99836f5508adaf 545
+  s_061a2e4bd65d43::t_4d0c22bd701357 565
+  s_061a2e4bd65d43::t_2aa0465e5a7330 384
+  s_061a2e4bd65d43::t_8b7f59f099bd93 14
+  s_061a2e4bd65d43::t_883a13ad463326 383
+app/src/main/kotlin/cn/ppps/forwarder/fragment/SettingsFragment.kt
+  s_061a2e4bd65d43::t_9d04a045a4dc90 263
+app/src/main/kotlin/cn/ppps/forwarder/fragment/AboutFragment.kt
+  s_061a2e4bd65d43::t_a885795824d9e5 103
+app/src/main/res/values-zh-rTW/strings.xml
+  s_061a2e4bd65d43::t_ffff6805ca0737 14
+  s_061a2e4bd65d43::t_9c8b4e1cba1b2e 544
+  s_061a2e4bd65d43::t_32886a69536368 565
+  s_061a2e4bd65d43::t_89eee36a9e210e 641
+  s_061a2e4bd65d43::t_93bfbb09c13298 125
+  s_061a2e4bd65d43::t_e237ab3db652ea 383
+  s_061a2e4bd65d43::t_541e7971ea1f9b 384
+  s_061a2e4bd65d43::t_9f9e6c75625d69 545
+  s_061a2e4bd65d43::t_a277e631dfc41d 1024
+app/src/main/res/values/strings.xml
+  s_061a2e4bd65d43::t_2a92d8313f8734 594
+  s_061a2e4bd65d43::t_b4500ee07ada7f 43
+  s_061a2e4bd65d43::t_e55692335ed400 413
+  s_061a2e4bd65d43::t_4c9c36b839f19a 670
+  s_061a2e4bd65d43::t_74f2d06c43d573 412
+  s_061a2e4bd65d43::t_75cce57028c0de 154
+  s_061a2e4bd65d43::t_ca53fb889f4491 573
+  s_061a2e4bd65d43::t_fef0bbbd1a03b7 574
+  s_061a2e4bd65d43::t_4407deeb939127 1113-1117
+  s_061a2e4bd65d43::t_2b56c01a71347c 1053
+app/src/main/res/values-en/strings.xml
+  s_061a2e4bd65d43::t_0a15b652796d61 14
+  s_061a2e4bd65d43::t_0d59b0ff7b6dc9 124
+  s_061a2e4bd65d43::t_1ceb29dbc69cc5 382
+  s_061a2e4bd65d43::t_9d629dcfb80182 1023
+  s_061a2e4bd65d43::t_d47c7b7cb9d30e 544
+  s_061a2e4bd65d43::t_08d1dee1808bf5 640
+  s_061a2e4bd65d43::t_b4525114aff5d9 383
+  s_061a2e4bd65d43::t_a655dea4f64f68 564
+app/src/main/kotlin/cn/ppps/forwarder/database/AppDatabase.kt
+  s_061a2e4bd65d43::t_9f91dcd8e058c8 181
+  s_061a2e4bd65d43::t_7df60760ba5ecc 165
+  s_061a2e4bd65d43::t_af484d4c21391e 191
+app/src/main/kotlin/cn/ppps/forwarder/activity/MainActivity.kt
+  s_061a2e4bd65d43::t_e9ca3cdaf80618 45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "53aa5979ec08156144d6f7a75318a94f2e51cabc",
+  "prompts": {},
+  "sessions": {
+    "s_061a2e4bd65d43": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "06cc28f7-a0b9-4fe4-a40c-6876465995bd",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "kiliter <kiliter@qq.com>"
+    }
+  }
+}
